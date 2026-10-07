@@ -1,0 +1,9 @@
+_target_: gear_sonic.envs.manager_env.mdp.observations.CameraRGBCfg
+camera_rgb:
+  _target_: isaaclab.managers.ObservationTermCfg
+  func: gear_sonic.envs.manager_env.mdp.observations:get_tiled_camera_image
+  params:
+    camera_cfg:
+      _target_: isaaclab.managers.SceneEntityCfg
+      name: ego_camera
+    normalize: false

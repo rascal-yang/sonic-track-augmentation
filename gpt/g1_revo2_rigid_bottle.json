@@ -1,0 +1,188 @@
+{
+  "schema": "g1_grasp_experience_v1",
+  "object": "rigid_bottle",
+  "hand": "Revo2",
+  "robot": "G1",
+  "scope": {
+    "radius_m": 0.03,
+    "height_m": 0.235,
+    "mass_kg": 0.25,
+    "table_height_m": 0.75,
+    "physics": "estimated, not calibrated",
+    "orientation_classes": [
+      "upright",
+      "fallen_on_table"
+    ]
+  },
+  "success_reference": "/home/kinetra-4090-01/code/zijian/policy_memory/bottle_upright_stationary004_reference.npz",
+  "records": [
+    {
+      "id": "upright_success",
+      "status": "observed_success_single_run",
+      "context": "upright bottle; comfortable initial standing pose",
+      "source": "/home/kinetra-4090-01/code/zijian/experiments/20260921_new_scene_closed_loop/runs/stationary_004",
+      "lesson": "Use measured side-raise/approach/lift as posture hints. Standing root initialization is not identical to post-walk actual state.",
+      "action": "Retarget to current object and root; preserve contact feedback. Do not assume direct world-coordinate replay transfers."
+    },
+    {
+      "id": "force_alone_insufficient",
+      "status": "observed_failure",
+      "context": "upright first grasp after walking",
+      "source": "/home/kinetra-4090-01/code/zijian/experiments/20260921_visual_recovery30/runs/walk_right_recovery_007",
+      "evidence": {
+        "switch_step": 1460,
+        "target_jump_rad": -1.114971399307251,
+        "target_jump_deg": -63.88315200805664,
+        "actual_velocity_next_step_rad_s": -13.258458137512207,
+        "actual_change_1460_to_1465_rad": -0.8344852924346924,
+        "object_xy_displacement_before_lift_m": 0.08778027445077896,
+        "opposed_force_at_1220_N": 18.008886337280273,
+        "whole_object_clearance_at_1288_m": 0.004963206793439756,
+        "recovery_closed_at_s": 29.22,
+        "recorded_second_closure_s": 0.78,
+        "stable_recovery_lift": false
+      },
+      "lesson": "Opposed contact and about 18 N total force did not establish a stable grasp; the bottle moved laterally before losing grip.",
+      "next_test": {
+        "status": "hypothesis_not_validated",
+        "proposal": "Correct pinch center and wrist alignment; if images/contact geometry indicate shallow contact, test 5 mm then 10 mm deeper along local approach, subject to collision clearance. Use a short vertical proof lift before full lift.",
+        "do_not": "Do not automatically raise friction, object force, or declare a depth correction successful."
+      }
+    },
+    {
+      "id": "arm_controller_switch",
+      "status": "observed_discontinuity",
+      "source": "/home/kinetra-4090-01/code/zijian/experiments/20260921_visual_recovery30/runs/walk_right_recovery_007",
+      "evidence": {
+        "switch_step": 1460,
+        "target_jump_rad": -1.114971399307251,
+        "target_jump_deg": -63.88315200805664,
+        "actual_velocity_next_step_rad_s": -13.258458137512207,
+        "actual_change_1460_to_1465_rad": -0.8344852924346924,
+        "object_xy_displacement_before_lift_m": 0.08778027445077896,
+        "opposed_force_at_1220_N": 18.008886337280273,
+        "whole_object_clearance_at_1288_m": 0.004963206793439756,
+        "recovery_closed_at_s": 29.22,
+        "recorded_second_closure_s": 0.78,
+        "stable_recovery_lift": false
+      },
+      "lesson": "Right wrist pitch target jumps about 64 degrees when grasp IK is removed; measured joint speed spikes.",
+      "next_test": {
+        "status": "implementation_and_physics_validation_needed",
+        "proposal": "Return arms along a clearance-checked reference into a shared walking posture, maintain continuous arm position/velocity reference, then transfer control. Preserve responsive SONIC leg feedback."
+      }
+    },
+    {
+      "id": "recovery_budget",
+      "status": "observed_contact_recovery_not_lift",
+      "source": "/home/kinetra-4090-01/code/zijian/experiments/20260921_visual_recovery30/runs/walk_right_recovery_007",
+      "lesson": "Full stance detour and fixed waits leave only 0.78 s for reclosure.",
+      "next_test": {
+        "status": "hypothesis_not_validated",
+        "proposal": "First evaluate local hand adjustment at current stance. Reposition feet only when reach/clearance checks fail. Plan backward from at least 6 s remaining for closure, proof lift and 3 s hold; preserve global 30 s budget."
+      }
+    },
+    {
+      "id": "turn_sweep",
+      "status": "observed_collision",
+      "source": "/home/kinetra-4090-01/code/zijian/experiments/20260921_visual_recovery30/runs/walk_right_recovery_006",
+      "lesson": "Turning near desk swept pinky into tabletop; check both arms and reference transitions, not palm point alone. Preserve collision stops."
+    },
+    {
+      "id": "postwalk_loaded_vertical_reference_20260921",
+      "status": "observed_two_physical_successes_visual128_review_pending",
+      "sources": [
+        "/home/kinetra-4090-01/code/zijian/experiments/20260921_five_directions_128/runs/walk_01_near_v3",
+        "/home/kinetra-4090-01/code/zijian/experiments/20260921_five_directions_128/runs/walk_02_middle"
+      ],
+      "evidence": [
+        {
+          "run": "walk_01_near_v3",
+          "strict_final_hold_s": 5.46,
+          "final_whole_bottle_clearance_m": 0.03690098387637819,
+          "table_contact_peak_N": 0.0,
+          "room_contact_peak_N": 0.0,
+          "retries": 0
+        },
+        {
+          "run": "walk_02_middle",
+          "strict_final_hold_s": 5.54,
+          "final_whole_bottle_clearance_m": 0.043411641235274745,
+          "table_contact_peak_N": 0.0,
+          "room_contact_peak_N": 0.0,
+          "retries": 0
+        }
+      ],
+      "lesson": "After supported opposed mid-body closure, align first lift origin and orientation to measured wrist; preserve X/Y. Actual loaded hand lags target. Incrementing vertical reference .045+.035+.035m maintained grasp, cleared whole bottle >2cm, and held >4s. Once airborne, maintain continuous existing reference rather than reanchor to lagging actual palm. Do not automatically deepen a well-aligned grasp.",
+      "next_test": {
+        "status": "not_yet_validated",
+        "proposal": "Remaining three starts: use same total .115m rise in one150-step quintic interpolation at .35rad/s arm target limit, 15-step contact feedback, then retain reference for hold."
+      },
+      "limitations": "Same estimated rigid .25kg bottle and fixed background props; does not validate fallen-bottle retry, unseen objects or calibrated real physics."
+    },
+    {
+      "id": "foot_docking_fine_feedback_20260921",
+      "status": "observed_one_left_success_after_failed_trials",
+      "sources": [
+        "/home/kinetra-4090-01/code/zijian/experiments/20260921_five_directions_128/runs/walk_04_left_feet_v2",
+        "/home/kinetra-4090-01/code/zijian/experiments/20260921_five_directions_128/runs/walk_04_left_feet_fine_v3"
+      ],
+      "lesson": "Near-table foot-center arrival plus0.22m/s navigation and0.1s feedback completed clean lift after earlier coarse checkpoint collision. Several settings changed; not a universal rate or isolated causal result."
+    },
+    {
+      "id": "preserved_stance_not_grasp_guarantee_20260921",
+      "status": "observed_handoff_improvement_but_grasp_failure",
+      "source": "/home/kinetra-4090-01/code/zijian/experiments/20260921_five_directions_128/runs/walk_05_right_feet_preserve_v4",
+      "evidence": {
+        "handoff_feet_center_displacement_m": 2.45e-06,
+        "handoff_root_xy_error_m": 0.01473,
+        "preclose_low_target_ik_error_m": 0.04146,
+        "upper_target_static_ik_error_m": 0.00032045,
+        "nominal_open_hand_path_margin_m": 0.01395,
+        "bottle_tip_first_step": 1155,
+        "recovery_seconds": 3.42,
+        "successful_regrasp": false
+      },
+      "lesson": "Preserving measured support pose avoided stance drift but low grasp remained unreachable. Unloaded retreat kept bottle upright; higher free-wrist candidate was statically reachable but actual tracking still tipped bottle. Nominal path clearance cannot stand in for actual swept-hand clearance.",
+      "next_test": {
+        "status": "not_validated",
+        "proposal": "Choose grasp from actual post-walk posture and arm tracking envelope before contact; monitor tip risk and whole-hand swept clearance at finer intervals. Fix grasp-to-walk transfer with timestep-scaled limits before attempting foot-reposition recovery."
+      }
+    },
+    {
+      "id": "physics_substep_limiter_units_20260921",
+      "status": "observed_implementation_audit",
+      "source": "/home/kinetra-4090-01/code/zijian/experiments/20260921_five_directions_128",
+      "lesson": "0.016rad bound in200Hz apply_actions equals3.2rad/s. Coarse target is first-substep only; preserve all recorded substep commands. No validated smooth recovery transfer established."
+    },
+    {
+      "id": "measured_130cm_g1_success_arc_20260925",
+      "status": "observed_success_in_this_scene",
+      "lesson": "Palm target 1cm inward alone did not solve reach. Closer stance plus measured support handoff with no extra waist lean and actual preclose stability gate enabled success. Replacing two approach goals with one continuous arc also succeeded, but increased duration1.70s and actual palm path0.23m.",
+      "scope": "112x60x75cm desk,23cm bottle,130cm G1, current SONIC/Revo2; no perturbation success-rate claim",
+      "evidence": [
+        "experiments/20260925_measured_walk_grasp/runs/walk_009/summary.json",
+        "experiments/20260925_measured_walk_grasp/runs/walk_010_arc/summary.json",
+        "experiments/20260925_measured_walk_grasp/RESULTS.md"
+      ]
+    },
+    {
+      "id": "20261002_finite_waypoint_verified",
+      "status": "observed_success_with3of3_identical_state_repeats",
+      "context": "Exact initial state and existing controller in candidate_waypoints experiment; different controller interface from releaseONNX60-data teleop",
+      "source": "experiments/20261002_revo2_candidate_waypoints",
+      "evidence": {
+        "first_success_attempt": 17,
+        "repeat_successes": 3,
+        "origin_lift_m": 0.101748228,
+        "whole_hull_clearance_m": 0.097450108,
+        "continuous_gate_hold_s": 1.6,
+        "obstacle_peak_N": 0
+      },
+      "lesson": "Prefer the frozen verified candidate and approach primitive. Execute references through live IK/control and physical gates; do not replay saved object states.",
+      "action": "Use motion_primitives/g1_revo2_bottle_v3; recheck applicability, geometry and live physics for changed assets/states."
+    }
+  ],
+  "promotion_rule": "Only promote a correction after physically verified stable lift and collision review; keep each attempt and denominator. An observed success is not universal validity.",
+  "use_before_next_run": "Read this file and reference metadata, match current orientation/mount/physics, record chosen lessons and explicit changes in the next run. Fallen-bottle contact recovery is not an upright grasp success."
+}

@@ -1,0 +1,12 @@
+# Meta action (token + residual) smoothness penalty
+# Penalizes ||meta_action_t - meta_action_{t-1}||² to encourage smooth
+# latent token trajectories. This reduces jitter in decoded joint actions.
+#
+# token_only=True (default): only penalizes the latent/token part (64 dims),
+# excluding the finger primitive actions (2 dims) which are discrete.
+meta_action_rate_l2:
+  _target_: isaaclab.managers.RewardTermCfg
+  func: gear_sonic.envs.manager_env.mdp:meta_action_rate_l2
+  weight: -0.01
+  params:
+    token_only: False

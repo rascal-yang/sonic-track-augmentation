@@ -1,0 +1,34 @@
+# Rewards composition for GRAB dataset pick-and-place tracking
+# Combines robot motion tracking + grasping reward + object motion tracking
+# All rewards are active simultaneously (no staging)
+#
+# Object tracking uses OmniGrasp formulation:
+# r_t^obj = (w_op * exp(-100 * ||p̂_t^obj - p_t^obj||_2)
+#          + w_or * exp(-100 * ||θ̂_t^obj - θ_t^obj||_2)
+#          + w_ov * exp(-5 * ||v̂_t^obj - v_t^obj||_2)
+#          + w_oav * exp(-5 * ||ω̂_t^obj - ω_t^obj||_2)) * 1{C} + 1{C} * w_c
+
+defaults:
+  # Robot motion tracking rewards (from HOI tracking)
+  - terms/tracking_anchor_pos@_here_
+  - terms/tracking_anchor_ori@_here_
+  - terms/tracking_relative_body_pos@_here_
+  - terms/tracking_relative_body_ori@_here_
+  - terms/tracking_body_linvel@_here_
+  - terms/tracking_body_angvel@_here_
+  - terms/undesired_contacts_no_ankle_hand@_here_
+  - terms/hand_table_contact_penalty@_here_
+  # Grasping rewards
+  # - terms/hand_fingers_object_distance@_here_
+  - terms/grasp_reward@_here_
+  - terms/grasp_finger_direction@_here_  # Encourages thumb/index on opposite sides
+  - terms/finger_primitive_limit@_here_  # Penalizes actions outside valid range
+  # Meta action (token) smoothness penalties
+  - terms/meta_action_rate_l2@_here_      # Policy output (residual) rate
+  - terms/full_latent_rate_l2@_here_      # Decoder input (full token) rate
+  # Early termination penalty
+  - terms/is_terminated@_here_
+  # Object motion tracking reward (OmniGrasp r_t^obj)
+  - terms/object_tracking_reward@_here_
+
+_target_: gear_sonic.envs.manager_env.mdp.rewards.RewardsCfg

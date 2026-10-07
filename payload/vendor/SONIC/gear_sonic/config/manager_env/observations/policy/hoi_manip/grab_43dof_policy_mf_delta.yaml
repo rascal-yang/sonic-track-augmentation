@@ -1,0 +1,116 @@
+# Policy observations for GRAB pick-and-place tracking with 43 DOF
+# Uses DELTA observations following OmniGrasp/MimicManipulator:
+#   - object_pos_delta_multi_future: ref_future - sim_current (in body frame)
+#   - object_ori_delta_multi_future_6d: relative rotation from sim_current to ref_future
+# PLUS: Multi-future body motion (same as G1 encoder input) for residual prediction
+
+defaults:
+  - ../terms/command@_here_
+  - ../terms/motion_anchor_pos_b@_here_
+  - ../terms/motion_anchor_ori_b@_here_
+  - ../terms/base_lin_vel@_here_
+  - ../terms/base_ang_vel@_here_
+  - ../terms/joint_pos@_here_
+  - ../terms/joint_vel@_here_
+  - ../terms/actions@_here_
+  - ../terms/target_object_pos@_here_
+  - ../terms/hand_object_transform_6d@_here_
+  - ../terms/finger_tips_force@_here_
+  # Object current state in body frame (3 pos + 6 ori = 9D)
+  - ../terms/object_pos_b@_here_
+  - ../terms/object_ori_b_6d@_here_
+  # Table state in body frame (3 pos + 6 ori = 9D)
+  - ../terms/table_pos_b@_here_
+  - ../terms/table_ori_b@_here_
+  # Object DELTA observations (ref_future - sim_current)
+  - ../terms/object_pos_delta_multi_future@_here_
+  - ../terms/object_ori_delta_multi_future_6d@_here_
+  # Body multi-future observations (same as G1 encoder input!)
+  - ../terms/command_multi_future@_here_
+  - ../terms/motion_anchor_ori_b_mf@_here_
+
+_target_: gear_sonic.envs.manager_env.mdp.observations.PolicyCfg
+enable_corruption: True
+concatenate_terms: True
+
+# Noise configuration
+motion_anchor_pos_b:
+  noise:
+    _target_: isaaclab.utils.noise.AdditiveUniformNoiseCfg
+    n_min: -0.25
+    n_max: 0.25
+
+motion_anchor_ori_b:
+  noise:
+    _target_: isaaclab.utils.noise.AdditiveUniformNoiseCfg
+    n_min: -0.05
+    n_max: 0.05
+
+base_lin_vel:
+  noise:
+    _target_: isaaclab.utils.noise.AdditiveUniformNoiseCfg
+    n_min: -0.5
+    n_max: 0.5
+
+base_ang_vel:
+  noise:
+    _target_: isaaclab.utils.noise.AdditiveUniformNoiseCfg
+    n_min: -0.2
+    n_max: 0.2
+
+joint_pos:
+  noise:
+    _target_: isaaclab.utils.noise.AdditiveUniformNoiseCfg
+    n_min: -0.01
+    n_max: 0.01
+
+joint_vel:
+  noise:
+    _target_: isaaclab.utils.noise.AdditiveUniformNoiseCfg
+    n_min: -0.5
+    n_max: 0.5
+
+# No noise on manipulation observations (they need to be precise)
+target_object_pos:
+  noise: null
+
+hand_object_transform_6d:
+  noise: null
+
+finger_tips_force:
+  noise: null
+
+object_pos_b:
+  noise: null
+
+object_ori_b_6d:
+  noise: null
+
+table_pos_b:
+  noise: null
+
+table_ori_b:
+  noise: null
+
+# Small noise on object delta observations
+object_pos_delta_multi_future:
+  noise:
+    _target_: isaaclab.utils.noise.AdditiveUniformNoiseCfg
+    n_min: -0.02
+    n_max: 0.02
+
+object_ori_delta_multi_future_6d:
+  noise:
+    _target_: isaaclab.utils.noise.AdditiveUniformNoiseCfg
+    n_min: -0.02
+    n_max: 0.02
+
+# Small noise on body multi-future observations (matching tokenizer noise)
+command_multi_future:
+  noise: null
+
+motion_anchor_ori_b_mf:
+  noise:
+    _target_: isaaclab.utils.noise.AdditiveUniformNoiseCfg
+    n_min: -0.05
+    n_max: 0.05

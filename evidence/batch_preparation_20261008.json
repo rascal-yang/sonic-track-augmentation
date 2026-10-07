@@ -1,0 +1,15 @@
+{
+  "status": {
+    "status": "prepared",
+    "candidates": 60,
+    "task_success": false,
+    "training_ready": false
+  },
+  "candidate_manifests_verified": 60,
+  "file_hashes_verified": 840,
+  "geometry_table_screen_passed": 60,
+  "preparation_interval_s": 717.9572784900665,
+  "timing_scope": "File timestamp interval: schedule.json to completed status.json. Launcher interrupted by tool-service restart; no whole-process timing/exit code recorded.",
+  "source_directory": "/home/kinetra-4090-01/code/zijian/experiments/20261008_consolidated_pipeline/prepared_batch_060",
+  "physical_execution_performed": false
+}

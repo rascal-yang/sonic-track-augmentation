@@ -1,0 +1,74 @@
+{
+  "source": "__RUNTIME__/workspace/experiments/20260925_measured_walk_grasp/runs/walk_009",
+  "purpose": "actual motion/phase prior only, not unconditional motor replay",
+  "result": {
+    "run": "walk_009",
+    "success": true,
+    "clean_success": true,
+    "control_steps": 1641,
+    "duration_s": 32.82,
+    "strict_final_hold_s": 5.86,
+    "first_lift_confirmation_s": 27.46,
+    "final_whole_bottle_clearance_m": 0.09405655513760436,
+    "table_contact_peak_N": 0.0,
+    "room_contact_peak_N": 0.0,
+    "minimum_pelvis_z_m": 0.7369126677513123,
+    "navigation_planner_calls": 21,
+    "navigation_reached_grasp": true,
+    "initial_root": [
+      0.3700000047683716,
+      -0.9700000286102295,
+      0.7468748688697815
+    ],
+    "final_root": [
+      0.37483710050582886,
+      -0.49336251616477966,
+      0.771668016910553
+    ],
+    "preclosure_spatial_waypoints": [
+      [
+        0.595,
+        -0.455,
+        0.92
+      ],
+      [
+        0.40596289658662765,
+        -0.18342758109437401,
+        0.8567510532951654
+      ]
+    ],
+    "preclosure_waypoint_count": 2,
+    "retries": 0,
+    "attempts": 1,
+    "max_arm_target_velocity_rad_s": 0.8000016212463379,
+    "max_arm_target_acceleration_rad_s2": 31.57052993774414,
+    "wrist_speed_p95_m_s_during_arm_control": 0.1458493821322917,
+    "stop_reason": "Hold complete; classify from recorded physical data",
+    "runtime_result": {
+      "task_success_proxy": true,
+      "error": null,
+      "control_steps": 1641,
+      "physics_substeps": 6564,
+      "peak_lift_m": 0.10430306196212769,
+      "ever_low_pelvis": false,
+      "max_stable_lift_seconds": 5.42,
+      "termination_terms": [],
+      "record_only_termination_events": {},
+      "protocol": null,
+      "agent_decisions": 77,
+      "agent_requested_stop": true,
+      "comparison_mode": null,
+      "direct_residual_max_abs": null,
+      "grail_interaction_enabled": false,
+      "actual_control_definition": "control_definition.json",
+      "control": "SONIC V2 ONNX walking; 3s reference handoff +1s standing; actual-state right-arm IK and bounded gravity compensation, SONIC other joints; GRAIL residual zero throughout.",
+      "reference_teleport_during_execution": false
+    },
+    "external_GPT_API": false,
+    "GRAIL_interaction_enabled": false
+  },
+  "limits": [
+    "single start/current estimated physics",
+    "visual temporal acceptance pending"
+  ]
+}

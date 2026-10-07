@@ -1,0 +1,39 @@
+{
+  "stand_root_m": [
+    0.37,
+    -0.485,
+    0.746874851370164
+  ],
+  "side_raise_m": [
+    0.595,
+    -0.455,
+    0.92
+  ],
+  "palm_offset_from_bottle_m": [
+    0.04596279287454577,
+    -0.03342748572694238,
+    0.10675105329516542
+  ],
+  "precontact_offset_m": [
+    0,
+    0,
+    0
+  ],
+  "raise_steps": 110,
+  "approach_steps": 200,
+  "contact_steps": 90,
+  "lift_steps": 150,
+  "max_retries": 0,
+  "retry_height_offsets_m": [
+    0,
+    0.012,
+    -0.01
+  ],
+  "first_closure": 0.35,
+  "author": "Codex after walk006 reach timeout:3cm closer dock plus0.15rad waist reference blend, unchanged palm target and finger force",
+  "approach_profile": "Beta(3,5) C2 progression; decelerate earlier near contact without extra spatial waypoint",
+  "version": "closer_dock_preserved_support_inward_palm_v7",
+  "continuous_arc": false,
+  "handoff_waist_pitch_delta_rad": 0.0,
+  "docking_radius_m": 0.04
+}

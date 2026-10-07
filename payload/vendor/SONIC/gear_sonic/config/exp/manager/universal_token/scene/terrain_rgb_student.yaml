@@ -1,0 +1,144 @@
+# @package _global_
+# Action-level RGB student distilled from the working terrain teacher.
+defaults:
+  - /exp/manager/universal_token/scene/terrain_tracking
+  - _self_
+
+experiment_name: terrain_rgb_student_${exp_var}
+trainer:
+  _target_: gear_sonic.trl.trainer.distill_trainer.TRLDistillTrainer
+num_envs: 64
+actor_prop_history_length: 1
+actor_actions_history_length: 1
+
+manager_env:
+  config:
+    enable_cameras: true
+    cameras:
+      camera_resolution: [108, 192]
+      camera_data_types: [rgb]
+      camera_pos_offset: [0.35, 0.0, 0.18]
+      camera_rot_offset: [0.5, -0.5, 0.5, -0.5]
+    terrain_type: trimesh
+    flat_to_terrain_ratio: 0
+  observations:
+      camera_rgb:
+        _target_: gear_sonic.envs.manager_env.mdp.observations.CameraRGBCfg
+        camera_rgb:
+          _target_: isaaclab.managers.ObservationTermCfg
+          func: gear_sonic.envs.manager_env.mdp.observations:get_tiled_camera_image
+          params:
+            camera_cfg:
+              _target_: isaaclab.managers.SceneEntityCfg
+              name: ego_camera
+            normalize: false
+      policy:
+        enable_corruption: false
+
+algo:
+  config:
+    use_dagger: true
+    teacher_input_key: actor_obs
+    distill_only: false
+    num_learning_iterations: 30000
+    num_steps_per_env: 8
+    num_mini_batches: 1
+    actor_learning_rate: 1e-4
+    dagger_bc_loss_coef: 1.0
+    module_dim:
+      vision_feature_dim: 128
+    actor:
+      _target_: gear_sonic.trl.modules.vision_actor.VisionActor
+      running_mean_std: false
+      backbone:
+        vision_module:
+          module_config_dict:
+            input_dim: [camera_rgb]
+            output_dim: [vision_feature_dim]
+            layer_config:
+              type: ResNet
+              resnet_type: resnet18
+              pretrained: false
+              trainable: true
+        mlp_module:
+          module_config_dict:
+            input_dim: [actor_obs, vision_feature_dim]
+            output_dim: [robot_action_dim]
+            layer_config:
+              type: MLP
+              hidden_dims: [512, 256, 128]
+              activation: SiLU
+    teacher_actor:
+      _target_: gear_sonic.trl.modules.actor_critic_modules.Actor
+      running_mean_std: false
+      input_obs_dict: true
+      has_aux_loss: true
+      backbone:
+        _target_: gear_sonic.trl.modules.universal_token_modules.UniversalTokenModule
+        num_future_frames: ${manager_env.commands.motion.num_future_frames}
+        proprioception_features: [actor_obs]
+        encoder_sample_probs: ${manager_env.commands.motion.encoder_sample_probs}
+        num_fsq_levels: 32
+        fsq_level_list: 32
+        max_num_tokens: 2
+        encoders:
+          g1:
+            inputs: [command_multi_future_nonflat, motion_anchor_ori_b_mf_nonflat, height_map_z_flat]
+            params:
+              _target_: gear_sonic.trl.modules.base_module.BaseModule
+              input_dim:
+              output_dim:
+              num_input_temporal_dims: ${manager_env.commands.motion.num_future_frames}
+              num_output_temporal_dims: 2
+              module_config_dict:
+                layer_config:
+                  type: MLP
+                  hidden_dims: [2048, 1024, 512, 512]
+                  activation: SiLU
+            input_projectors:
+              height_map_z_flat:
+                type: conv2d
+                input_shape: [1, 11, 11]
+                channels: [16, 32]
+                kernel_sizes: [3, 3]
+                strides: [1, 1]
+                paddings: [1, 1]
+                use_maxpool: true
+                hidden_dims: [128]
+                output_dim: 128
+                activation: ReLU
+        quantizer:
+          _target_: vector_quantize_pytorch.FSQ
+          levels: [32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32]
+        decoders:
+          g1_dyn:
+            outputs: [action]
+            inputs: [token_flattened, proprioception]
+            has_temporal_dim: false
+            params:
+              _target_: gear_sonic.trl.modules.base_module.BaseModule
+              input_dim:
+              output_dim:
+              module_config_dict:
+                layer_config:
+                  type: MLP
+                  hidden_dims: [2048, 2048, 1024, 1024, 512, 512]
+                  activation: SiLU
+          g1_kin:
+            outputs: [command_multi_future_nonflat, motion_anchor_ori_b_mf_nonflat]
+            inputs: [token]
+            has_temporal_dim: true
+            params:
+              _target_: gear_sonic.trl.modules.base_module.BaseModule
+              input_dim:
+              output_dim:
+              num_input_temporal_dims: 2
+              num_output_temporal_dims: ${manager_env.commands.motion.num_future_frames}
+              module_config_dict:
+                layer_config:
+                  type: MLP
+                  hidden_dims: [2048, 1024, 512, 512]
+                  activation: SiLU
+    network_load_dict:
+      teacher_actor:
+        path: models/terrain_release/last.pt

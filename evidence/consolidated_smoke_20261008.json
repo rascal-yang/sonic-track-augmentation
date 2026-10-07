@@ -1,0 +1,141 @@
+{
+  "date": "2026-10-08",
+  "runtime": "/tmp/sonic_grasp_portable_20261008_v2",
+  "candidate_delta_m": [
+    0.005,
+    0,
+    0
+  ],
+  "status": {
+    "success": true,
+    "first_wall_s": 298.0356145440019,
+    "replay_wall_s": 190.02289641503012
+  },
+  "launcher": {
+    "wall_s": 488.4336345110205,
+    "exit_code": 0,
+    "scope": "Whole child process, including startup/exit and export when requested; excludes resource preparation.",
+    "command": [
+      "/home/kinetra-4090-01/miniconda3/envs/sonic/bin/python",
+      "/tmp/sonic_grasp_portable_20261008_v2/workspace/pipelines/sonic_teleop_augmentation/lean_pair.py",
+      "--candidate",
+      "/home/kinetra-4090-01/code/zijian/experiments/20261008_consolidated_pipeline/candidate_001",
+      "--output",
+      "/home/kinetra-4090-01/code/zijian/experiments/20261008_consolidated_pipeline/portable_pair_001"
+    ]
+  },
+  "generate": {
+    "task_success": true,
+    "complete_sequence": true,
+    "control_steps": 1071,
+    "duration_s": 21.42,
+    "strict_final_hold_s": 4.46,
+    "final_clearance_m": 0.12685665266037938,
+    "final3s_opposed_fraction": 1.0,
+    "final3s_slip_m": 0.0006728247029924347,
+    "final3s_rotation_deg": 0.3077210064498856,
+    "minimum_pelvis_z_m": 0.753367006778717,
+    "monitored_table_force_peak_N": 0.0,
+    "contact_samples": 4284,
+    "stop_reason": null,
+    "profile": "generate",
+    "elapsed_capture_s": 272.80645417497726,
+    "training_ready": false,
+    "visual_review": "pending",
+    "validation_scope": "Terminal 3s grasp and aggregate online guards; no full trajectory equivalence check"
+  },
+  "replay": {
+    "task_success": true,
+    "complete_sequence": true,
+    "control_steps": 1071,
+    "duration_s": 21.42,
+    "strict_final_hold_s": 4.46,
+    "final_clearance_m": 0.12685665266037938,
+    "final3s_opposed_fraction": 1.0,
+    "final3s_slip_m": 0.0006728247029924347,
+    "final3s_rotation_deg": 0.3077210064498856,
+    "minimum_pelvis_z_m": 0.753367006778717,
+    "monitored_table_force_peak_N": 0.0,
+    "contact_samples": 4284,
+    "stop_reason": null,
+    "profile": "replay",
+    "elapsed_capture_s": 166.82939314900432,
+    "training_ready": false,
+    "visual_review": "no_video_by_design",
+    "validation_scope": "Terminal 3s grasp and aggregate online guards; no full trajectory equivalence check"
+  },
+  "loader": {
+    "passed": true,
+    "loader": "/home/kinetra-4090-01/code/zijian/sonic-grasp-augmentation/dependencies/Isaac-GR00T/gr00t/data/dataset/lerobot_episode_loader.py",
+    "backend": "opencv_rgb_sequential",
+    "episodes": [
+      {
+        "episode": 0,
+        "frames": 1071,
+        "token_dim": 64,
+        "left_hand_dim": 6,
+        "right_hand_dim": 6,
+        "video_shape": [
+          480,
+          640,
+          3
+        ],
+        "labels_match_execution": true
+      }
+    ],
+    "training_run_performed": false
+  },
+  "another_machine_tested": false,
+  "all_60_physics_rerun": false,
+  "notes": [
+    "Independent runtime uses preserved payload controller; no original working-directory code required.",
+    "Existing local Isaac installation reused; ORT and av supplied through local dependency package paths.",
+    "Unrelated Isaac task observed on GPU during first part; no guarantee of 6-minute end-to-end time.",
+    "No full visual acceptance or model training performed."
+  ],
+  "seed_reference_timing": {
+    "wall_s": 1.1421902009751648,
+    "exit_code": 0,
+    "scope": "Whole child process, including startup/exit and export when requested; excludes resource preparation.",
+    "command": [
+      "/home/kinetra-4090-01/miniconda3/envs/sonic/bin/python",
+      "/tmp/sonic_grasp_portable_20261008_v3/workspace/experiments/20260929_sonic_teleop_grasp/prepare.py",
+      "--output",
+      "/home/kinetra-4090-01/code/zijian/experiments/20261008_consolidated_pipeline/teleop_reference_002"
+    ]
+  },
+  "two_candidate_timing": {
+    "wall_s": 30.899099502013996,
+    "exit_code": 0,
+    "scope": "Whole child process, including startup/exit and export when requested; excludes resource preparation.",
+    "command": [
+      "/home/kinetra-4090-01/miniconda3/envs/sonic/bin/python",
+      "/home/kinetra-4090-01/code/zijian/sonic-grasp-augmentation/prepare_batch.py",
+      "--output",
+      "/home/kinetra-4090-01/code/zijian/experiments/20261008_consolidated_pipeline/prepared_batch_002",
+      "--count",
+      "2",
+      "--random-seed",
+      "20260930"
+    ]
+  },
+  "batch_resume_check": {
+    "status": {
+      "success": true,
+      "completed": 1,
+      "requested": 1
+    },
+    "scope": "Reused the same candidate and its freshly validated successful pair, then batch export; no additional physics run."
+  },
+  "delivery_preflight": {
+    "archive_sha256": "2b0cc175b0345c0f3e17fa4e478f880ffc4882813b195d1144e58a9e84b45214",
+    "extracted_repository": "/tmp/sonic_distribution_check_20261008/sonic-grasp-augmentation",
+    "runtime": "/tmp/sonic_distribution_runtime_20261008",
+    "resource_hashes_verified": 2375,
+    "tests_passed": 8,
+    "doctor_exit_code": 0,
+    "new_candidate_encoder_geometry_passed": true,
+    "same_machine": true,
+    "note": "Preflight archive contains the same launcher/controllers/resources as final delivery; final documentation and evidence added afterward."
+  }
+}

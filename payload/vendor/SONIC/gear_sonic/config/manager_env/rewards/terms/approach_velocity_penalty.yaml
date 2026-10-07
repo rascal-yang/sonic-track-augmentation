@@ -1,0 +1,13 @@
+approach_velocity_penalty:
+  _target_: isaaclab.managers.RewardTermCfg
+  func: gear_sonic.envs.manager_env.mdp:reward_approach_velocity_penalty
+  weight: -1.0
+  params:
+    sensor_cfg:
+      _target_: isaaclab.managers.SceneEntityCfg
+      name: "object_to_hand_contact_sensor"
+    wrist_link: "right_hand_palm_link"
+    sigma: 0.25
+    contact_threshold: 0.1
+    min_contacts: 3
+    disable_after_contact: true  # If false, penalty stays active during/after grasp

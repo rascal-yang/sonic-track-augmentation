@@ -1,0 +1,93 @@
+{
+  "starts": {
+    "walk_001": [
+      0.37,
+      -1.0,
+      0.746874851370164
+    ],
+    "walk_002": [
+      0.37,
+      -1.0,
+      0.746874851370164
+    ],
+    "walk_003": [
+      0.37,
+      -1.0,
+      0.746874851370164
+    ],
+    "walk_004": [
+      0.37,
+      -1.0,
+      0.746874851370164
+    ],
+    "walk_005": [
+      0.37,
+      -1.0,
+      0.746874851370164
+    ],
+    "walk_006": [
+      0.37,
+      -1.0,
+      0.746874851370164
+    ],
+    "walk_007": [
+      0.37,
+      -1.0,
+      0.746874851370164
+    ],
+    "walk_008": [
+      0.37,
+      -0.97,
+      0.746874851370164
+    ],
+    "walk_009": [
+      0.37,
+      -0.97,
+      0.746874851370164
+    ],
+    "walk_010_arc": [
+      0.37,
+      -0.97,
+      0.746874851370164
+    ]
+  },
+  "target_root_m": [
+    0.37,
+    -0.485,
+    0.746874851370164
+  ],
+  "yaw_rad": 1.5707963267948966,
+  "seed": 17,
+  "attempts_per_start": "development and bounded same-episode retries; all retained",
+  "navigation_speed_m_s": 0.18,
+  "navigation_timeout_steps": 1000,
+  "braking_timeout_steps": 250,
+  "handoff_steps": 202,
+  "max_steps": 3500,
+  "success": "whole bottle lowest point > table + .02m, hand contact > .2N, object table force < .1N, pelvis > .45m, continuous final hold >=3s; opposed thumb/finger contact at end",
+  "contact_quality": "separate: any monitored hand/forearm table contact > .05N; abort on latched .5N alert",
+  "hint_source": "__RUNTIME__/workspace/experiments/20260921_new_scene_closed_loop/runs/walk_02_middle_v3",
+  "author": "GPT/Codex session reviews images and privileged/proprioceptive feedback at checkpoints; automated bounded supervisor between reviews; no external GPT API",
+  "grasp_corrections": "development; see individual decisions",
+  "controller": "SONIC V2 ONNX walking; 3s reference handoff +1s standing; actual-state right-arm IK and bounded gravity compensation, SONIC other joints; GRAIL residual zero throughout.",
+  "retry_max": 2,
+  "evaluation_runs": [
+    "walk_002",
+    "walk_003",
+    "walk_004",
+    "walk_005",
+    "walk_006",
+    "walk_007",
+    "walk_008",
+    "walk_009",
+    "walk_010_arc"
+  ],
+  "navigation_paths": {},
+  "development_navigation_only": [],
+  "formal_strategy": "Two guarded spatial goals; C2 timing, live actual-state arm IK, SONIC balance and walking, bounded retry. First two formal runs revised high-level config during walking before any arm action; full revision logged.",
+  "retry_stress_run": "stationary_retry_006",
+  "retry_stress_definition": "First grasp target intentionally shifted +8cm X, then automatic supported-bottle reopen/retreat/regrasp using current state. Not part of nominal five-start success rate.",
+  "supplementary_runs": [],
+  "interrupted_runs": [],
+  "interruption_policy": "Original interrupted run remains non-success in original 5-run denominator. Identical-parameter repeat separately reported; never substitutes original outcome."
+}

@@ -1,0 +1,34 @@
+# Standard event composition + rigid body mass randomization
+
+defaults:
+  - terms/physics_material@_here_
+  - terms/add_joint_default_pos@_here_
+  - terms/base_com@_here_
+  # - terms/push_robot@_here_
+
+_target_: gear_sonic.envs.manager_env.mdp.events.EventCfg
+
+
+base_com:
+  _target_: isaaclab.managers.EventTermCfg
+  params:
+    asset_cfg:
+      _target_: isaaclab.managers.SceneEntityCfg
+      name: "robot"
+      body_names: "torso_link"
+    com_range:
+      x: [-0.075, 0.075]
+      y: [-0.1, 0.1]
+      z: [-0.1, 0.1]
+
+randomize_rigid_body_mass:
+  _target_: isaaclab.managers.EventTermCfg
+  func: gear_sonic.envs.manager_env.mdp:randomize_rigid_body_mass
+  mode: startup
+  params:
+    asset_cfg:
+      _target_: isaaclab.managers.SceneEntityCfg
+      name: robot
+      body_names: ".*wrist_yaw.*|torso_link"
+    mass_distribution_params: [0.8, 1.5]
+    operation: scale

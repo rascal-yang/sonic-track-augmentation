@@ -1,0 +1,172 @@
+{
+  "scope": "20261007_token_local_profile fixed-token benchmark; read-only reconstruction from saved logs, snapshots and local source defaults; not a live fully resolved PhysX/Carb dump",
+  "physx_source_defaults": {
+    "solver_type": 1,
+    "solve_articulation_contact_last": false,
+    "min_position_iteration_count": 1,
+    "max_position_iteration_count": 255,
+    "min_velocity_iteration_count": 0,
+    "max_velocity_iteration_count": 255,
+    "enable_ccd": false,
+    "enable_stabilization": false,
+    "enable_external_forces_every_iteration": false,
+    "enable_enhanced_determinism": false,
+    "bounce_threshold_velocity": 0.5,
+    "friction_offset_threshold": 0.04,
+    "friction_correlation_distance": 0.025,
+    "gpu_max_rigid_contact_count": 8388608,
+    "gpu_max_rigid_patch_count": 163840,
+    "gpu_found_lost_pairs_capacity": 2097152,
+    "gpu_found_lost_aggregate_pairs_capacity": 33554432,
+    "gpu_total_aggregate_pairs_capacity": 2097152,
+    "gpu_collision_stack_size": 67108864,
+    "gpu_heap_capacity": 67108864,
+    "gpu_temp_buffer_capacity": 16777216,
+    "gpu_max_num_partitions": 8,
+    "gpu_max_soft_body_contacts": 1048576,
+    "gpu_max_particle_contacts": 1048576
+  },
+  "physx_source_overrides": {
+    "gpu_max_rigid_patch_count": 655360,
+    "gpu_collision_stack_size": 268435456,
+    "gpu_found_lost_pairs_capacity": 16777216,
+    "gpu_found_lost_aggregate_pairs_capacity": 16777216,
+    "gpu_total_aggregate_pairs_capacity": 2097152
+  },
+  "core": {
+    "isaac_sim": "5.1.0.0",
+    "isaaclab_source": "2.3.2",
+    "isaaclab_distribution_metadata": "0.54.2",
+    "python": "3.11.15",
+    "torch": "2.7.0+cu128",
+    "onnxruntime": "1.30.0",
+    "device": "cuda:0",
+    "physics_dt_s": 0.005,
+    "control_dt_s": 0.02,
+    "decimation": 4,
+    "num_envs": 1,
+    "headless": true,
+    "replicate_physics": false,
+    "env_spacing_m": 10.0,
+    "seed": 17
+  },
+  "source_defaults_not_read_back": {
+    "use_fabric": true,
+    "lazy_sensor_update": true,
+    "filter_collisions": true,
+    "enable_scene_query_support": false,
+    "create_stage_in_memory": false
+  },
+  "articulations": {
+    "g1": {
+      "recorded_bodies": 53,
+      "recorded_joints": 43,
+      "controlled_body_joints": 29,
+      "self_collisions": true,
+      "solver_position_iterations": 8,
+      "solver_velocity_iterations": 4,
+      "max_depenetration_velocity_m_s": 1.0
+    },
+    "revo2_each": {
+      "recorded_bodies": 12,
+      "recorded_joints": 11,
+      "active_joints": 6,
+      "mimic_joints": 5,
+      "self_collisions": false,
+      "solver_position_iterations": 32,
+      "solver_velocity_iterations": 8,
+      "max_depenetration_velocity_m_s": 1.0,
+      "drive_stiffness": 4.0,
+      "drive_damping": 0.12,
+      "armature": 0.0002
+    }
+  },
+  "sensors": {
+    "monitored_obstacle_sensors": 64,
+    "total_contact_refresh_calls_per_episode": 299950,
+    "contact_sensors_inferred_from_refresh_counts": 70,
+    "physics_samples": 4284,
+    "observation_compute_calls": 2142,
+    "explicit_tensor_cpu_calls_no_camera_01": 92178,
+    "right_grasp_track_pose": true,
+    "right_grasp_track_contact_points": true,
+    "right_grasp_track_friction_forces": true,
+    "right_grasp_max_contact_data_count_per_prim": 64,
+    "added_contact_sensor_history_length": 2,
+    "sensor_base_default_update_period_s": 0.0
+  },
+  "controller": {
+    "backend": "CPUExecutionProvider",
+    "intra_op_threads": 2,
+    "inter_op_threads": 1,
+    "decoder_input_dim": 994,
+    "token_dim": 64,
+    "body_output_dim": 29,
+    "live_history_frames": 10,
+    "decoder_calls": 1071,
+    "planner_calls": 0,
+    "encoder_calls": 0,
+    "external_gpt_calls": 0,
+    "numeric_supervisor_interval_steps": 5
+  },
+  "camera": {
+    "enabled_conditions": [
+      false,
+      true
+    ],
+    "count_when_enabled": 1,
+    "resolution": [
+      640,
+      480
+    ],
+    "native_hz": 25,
+    "stored_hz": 50,
+    "rgb_captures": 536,
+    "sim_render_calls": 1074,
+    "video_frames": 1071,
+    "render_updates_first_frame": 4,
+    "render_updates_other_frames": 2,
+    "renderer": "RTX realtime",
+    "antialiasing": "DLAA",
+    "translucency": true,
+    "reflections": true,
+    "annotator_device": "cpu",
+    "video_codec": "libx264",
+    "pixel_format": "yuv420p",
+    "crf": 18,
+    "preset": "fast",
+    "video_threads": 2
+  },
+  "kit_defaults_not_runtime_read_back": {
+    "indirectDiffuse": false,
+    "ambientOcclusion": false,
+    "dlss_frame_generation": false,
+    "directLighting_sampledLighting": true,
+    "directLighting_samplesPerPixel": 1,
+    "raytracing_cached": false,
+    "max_gpu_count": 1,
+    "asyncRendering": false,
+    "renderer_waitIdle": true,
+    "hydraEngine_waitIdle": true,
+    "present_enabled": false
+  },
+  "recording": {
+    "dense_per_substep_contact_json": false,
+    "depth": false,
+    "segmentation": false,
+    "extra_wrist_camera": false,
+    "full_hdf5": false,
+    "pose_states": 1072,
+    "pose_npz_compressed_at_end": true,
+    "decoder_io_recorded": true,
+    "explicit_added_cuda_synchronize": false,
+    "rollouts_serial_fresh_processes": true
+  },
+  "not_captured": [
+    "Fully composed collider/convex/triangle counts",
+    "Resolved runtime contact/rest offsets for every shape",
+    "Exact PhysX SDK build and runtime CPU dispatcher threads",
+    "Complete active Carb render settings, rate limits and all extension settings",
+    "Per-object actual iteration counts selected inside each solver island"
+  ]
+}

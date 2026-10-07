@@ -1,0 +1,23 @@
+{
+  "window_room": {
+    "table_center": [
+      0,
+      0,
+      0
+    ],
+    "table_size": [
+      1.12,
+      0.6,
+      0.75
+    ],
+    "room_asset": "__RUNTIME__/workspace/experiments/20260925_measured_walk_grasp/assets/room.usda",
+    "table_asset": "__RUNTIME__/workspace/experiments/20260925_measured_walk_grasp/assets/table.usda",
+    "object_shift": [
+      0,
+      0,
+      0
+    ],
+    "estimated": false,
+    "dimension_source": "User measurements 2026-09-25; mass and friction remain estimated"
+  }
+}

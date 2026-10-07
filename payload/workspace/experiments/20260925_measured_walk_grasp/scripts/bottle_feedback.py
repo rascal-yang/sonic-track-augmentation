@@ -1,0 +1,6 @@
+"""Read actual bottle axis and fingertip radial positions; distances are point proxies."""
+import json,sys,numpy as np
+from pathlib import Path
+from scipy.spatial.transform import Rotation
+r=Path(sys.argv[1]);s=json.loads(sorted(r.glob('observation_[0-9][0-9][0-9].json'))[-1].read_text());q=np.array(s['object_quat_wxyz']);R=Rotation.from_quat(q[[1,2,3,0]]);p=np.array(s['object_pos']);tips=s['protrusion_geometry']['tips_world_m'];t={k:R.inv().apply(np.array(v)-p) for k,v in tips.items()};target=p+R.apply([0,0,.12]);pinch=np.array(s['protrusion_geometry']['pinch_center_world_m']);w=np.array(s['wrist_quat_wxyz']['right']);wr=Rotation.from_quat(w[[1,2,3,0]])
+x={'observation_id':s['observation_id'],'step':s['step'],'upper_body_center_world':target.tolist(),'upper_body_minus_pinch':(target-pinch).tolist(),'bottle_axis':R.apply([0,0,1]).tolist(),'tilt_deg':float(np.rad2deg(np.arccos(np.clip(R.apply([0,0,1])[2],-1,1)))),'actual_wrist_euler':wr.as_euler('xyz').tolist(),'fingertips_in_bottle_frame':{k:v.tolist() for k,v in t.items()},'tip_radial_offset_from_body_radius':{k:float(np.linalg.norm(v[:2])-.03) for k,v in t.items()},'proxy_note':'Point geometry, not collision-mesh signed distance. Radial circle valid on body, not cap or shoulder.'};print(json.dumps(x,indent=2));(r/f'bottle_geometry_{s["observation_id"]:03}.json').write_text(json.dumps(x,indent=2))

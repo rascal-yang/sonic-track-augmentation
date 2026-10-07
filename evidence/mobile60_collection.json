@@ -1,0 +1,522 @@
+{
+  "collection_status": "complete",
+  "first_pass_success": 7,
+  "first_pass_total": 10,
+  "generation_attempts": 14,
+  "failed_generation_attempts": 4,
+  "accepted_new_trajectories": 10,
+  "existing_trajectories_unchanged": 50,
+  "total_target": 60,
+  "corrections": {
+    "start_04_pose_09_04": {
+      "brake_distance_m": 0.2,
+      "initial_failure": "Grasp-entry convergence timeout"
+    },
+    "start_07_pose_09_02": {
+      "brake_distance_m": 0.28,
+      "initial_failure": "Missed docking",
+      "failed_intermediate_brake_distance_m": 0.22
+    },
+    "start_08_pose_09_00": {
+      "brake_distance_m": 0.28,
+      "initial_failure": "Missed docking"
+    }
+  },
+  "sampled_starts_changed": false,
+  "grasp_skill_changed": false,
+  "success_limits_relaxed": false,
+  "replay_sampling_plan": {
+    "seed": 20261001,
+    "fraction": 0.1,
+    "random_sample": [
+      "start_04_pose_09_04"
+    ],
+    "boundary_sample": [
+      "start_08_pose_09_00"
+    ],
+    "entry_boundary_sample": [
+      "start_04_pose_09_04",
+      "start_05_pose_09_03",
+      "start_07_pose_09_02",
+      "start_10_pose_09_03"
+    ],
+    "entry_boundary_threshold_m": 0.045,
+    "refined_sample": [
+      "start_04_pose_09_04",
+      "start_07_pose_09_02",
+      "start_08_pose_09_00"
+    ],
+    "selected": [
+      "start_04_pose_09_04",
+      "start_05_pose_09_03",
+      "start_07_pose_09_02",
+      "start_08_pose_09_00",
+      "start_10_pose_09_03"
+    ],
+    "timing": "All first executions complete before first spot replay"
+  },
+  "visual_temporal_review": "pending",
+  "spotcheck": {
+    "passed": true,
+    "first_executions": 10,
+    "selected": [
+      "start_04_pose_09_04",
+      "start_05_pose_09_03",
+      "start_07_pose_09_02",
+      "start_08_pose_09_00",
+      "start_10_pose_09_03"
+    ],
+    "checks": [
+      {
+        "name": "start_04_pose_09_04",
+        "run": "/home/kinetra-4090-01/code/zijian/experiments/20261001_start_variations/replays/start_04_pose_09_04",
+        "passed": true,
+        "wall_s": 190.021974770003,
+        "quality": {
+          "task_success": true,
+          "complete_sequence": true,
+          "control_steps": 1066,
+          "duration_s": 21.32,
+          "strict_final_hold_s": 4.44,
+          "final_clearance_m": 0.12974008176134877,
+          "final3s_opposed_fraction": 1.0,
+          "final3s_slip_m": 0.0003428277241759623,
+          "final3s_rotation_deg": 0.15533363039374434,
+          "minimum_pelvis_z_m": 0.7512547373771667,
+          "monitored_table_force_peak_N": 0.0,
+          "contact_samples": 4264,
+          "stop_reason": null,
+          "profile": "replay",
+          "elapsed_capture_s": 171.69473696300702,
+          "training_ready": false,
+          "visual_review": "no_video_by_design",
+          "validation_scope": "Terminal 3s grasp and aggregate online guards; no full trajectory equivalence check"
+        }
+      },
+      {
+        "name": "start_05_pose_09_03",
+        "run": "/home/kinetra-4090-01/code/zijian/experiments/20261001_start_variations/replays/start_05_pose_09_03",
+        "passed": true,
+        "wall_s": 162.01739007899596,
+        "quality": {
+          "task_success": true,
+          "complete_sequence": true,
+          "control_steps": 1076,
+          "duration_s": 21.52,
+          "strict_final_hold_s": 4.42,
+          "final_clearance_m": 0.1281138121727694,
+          "final3s_opposed_fraction": 1.0,
+          "final3s_slip_m": 0.00019933330536453482,
+          "final3s_rotation_deg": 0.10493565335251294,
+          "minimum_pelvis_z_m": 0.7529076337814331,
+          "monitored_table_force_peak_N": 0.0,
+          "contact_samples": 4304,
+          "stop_reason": null,
+          "profile": "replay",
+          "elapsed_capture_s": 144.22640631100512,
+          "training_ready": false,
+          "visual_review": "no_video_by_design",
+          "validation_scope": "Terminal 3s grasp and aggregate online guards; no full trajectory equivalence check"
+        }
+      },
+      {
+        "name": "start_07_pose_09_02",
+        "run": "/home/kinetra-4090-01/code/zijian/experiments/20261001_start_variations/replays/start_07_pose_09_02",
+        "passed": true,
+        "wall_s": 166.0167688119982,
+        "quality": {
+          "task_success": true,
+          "complete_sequence": true,
+          "control_steps": 1056,
+          "duration_s": 21.12,
+          "strict_final_hold_s": 4.42,
+          "final_clearance_m": 0.12910060209038,
+          "final3s_opposed_fraction": 1.0,
+          "final3s_slip_m": 0.00017274876614397668,
+          "final3s_rotation_deg": 0.07287183315673224,
+          "minimum_pelvis_z_m": 0.7535206079483032,
+          "monitored_table_force_peak_N": 0.0,
+          "contact_samples": 4224,
+          "stop_reason": null,
+          "profile": "replay",
+          "elapsed_capture_s": 148.7222240389965,
+          "training_ready": false,
+          "visual_review": "no_video_by_design",
+          "validation_scope": "Terminal 3s grasp and aggregate online guards; no full trajectory equivalence check"
+        }
+      },
+      {
+        "name": "start_08_pose_09_00",
+        "run": "/home/kinetra-4090-01/code/zijian/experiments/20261001_start_variations/replays/start_08_pose_09_00",
+        "passed": true,
+        "wall_s": 158.01579364600184,
+        "quality": {
+          "task_success": true,
+          "complete_sequence": true,
+          "control_steps": 1071,
+          "duration_s": 21.42,
+          "strict_final_hold_s": 4.42,
+          "final_clearance_m": 0.13798134120240357,
+          "final3s_opposed_fraction": 1.0,
+          "final3s_slip_m": 0.00832236718094689,
+          "final3s_rotation_deg": 4.063468006578721,
+          "minimum_pelvis_z_m": 0.7527680397033691,
+          "monitored_table_force_peak_N": 0.0,
+          "contact_samples": 4284,
+          "stop_reason": null,
+          "profile": "replay",
+          "elapsed_capture_s": 141.5804904250108,
+          "training_ready": false,
+          "visual_review": "no_video_by_design",
+          "validation_scope": "Terminal 3s grasp and aggregate online guards; no full trajectory equivalence check"
+        }
+      },
+      {
+        "name": "start_10_pose_09_03",
+        "run": "/home/kinetra-4090-01/code/zijian/experiments/20261001_start_variations/replays/start_10_pose_09_03",
+        "passed": true,
+        "wall_s": 704.0787187759997,
+        "quality": {
+          "task_success": true,
+          "complete_sequence": true,
+          "control_steps": 1066,
+          "duration_s": 21.32,
+          "strict_final_hold_s": 4.44,
+          "final_clearance_m": 0.13700941950876555,
+          "final3s_opposed_fraction": 1.0,
+          "final3s_slip_m": 3.8115237347036234e-05,
+          "final3s_rotation_deg": 0.018115808728162514,
+          "minimum_pelvis_z_m": 0.7534080743789673,
+          "monitored_table_force_peak_N": 0.0,
+          "contact_samples": 4264,
+          "stop_reason": null,
+          "profile": "replay",
+          "elapsed_capture_s": 683.7346311809961,
+          "training_ready": false,
+          "visual_review": "no_video_by_design",
+          "validation_scope": "Terminal 3s grasp and aggregate online guards; no full trajectory equivalence check"
+        }
+      }
+    ],
+    "unchecked": 5
+  },
+  "new_dataset": "/home/kinetra-4090-01/code/zijian/experiments/20261001_start_variations/lerobot_all_train",
+  "merged_dataset": "/home/kinetra-4090-01/code/zijian/experiments/20261001_start_variations/lerobot60_all_train",
+  "merged_episodes": 60,
+  "merged_frames": 64240,
+  "new_loader_passed": true,
+  "merged_loader_passed": true,
+  "total_dataset_replay_checked": 55,
+  "total_dataset_not_replayed": 5,
+  "archive": "/home/kinetra-4090-01/code/zijian/exports/g1_revo2_mobile60_all_train_20261001.zip",
+  "unchecked_new_episodes": [
+    "start_01_pose_09_01",
+    "start_02_pose_09_02",
+    "start_03_pose_09_00",
+    "start_06_pose_09_01",
+    "start_09_pose_09_04"
+  ],
+  "new_episode_quality": [
+    {
+      "name": "start_01_pose_09_01",
+      "offset": {
+        "dx": -0.02,
+        "dy": 0,
+        "yaw_deg": -2
+      },
+      "run": "/home/kinetra-4090-01/code/zijian/experiments/20261001_start_variations/runs/start_01_pose_09_01",
+      "replay_status": "not_sampled",
+      "quality": {
+        "task_success": true,
+        "complete_sequence": true,
+        "control_steps": 1071,
+        "duration_s": 21.42,
+        "strict_final_hold_s": 4.48,
+        "final_clearance_m": 0.12516874263909028,
+        "final3s_opposed_fraction": 1.0,
+        "final3s_slip_m": 0.0004353417722788042,
+        "final3s_rotation_deg": 0.21164137997506172,
+        "minimum_pelvis_z_m": 0.7534321546554565,
+        "monitored_table_force_peak_N": 0.0,
+        "contact_samples": 4284,
+        "stop_reason": null,
+        "profile": "generate",
+        "elapsed_capture_s": 200.16147531900788,
+        "training_ready": false,
+        "visual_review": "pending",
+        "validation_scope": "Terminal 3s grasp and aggregate online guards; no full trajectory equivalence check"
+      }
+    },
+    {
+      "name": "start_02_pose_09_02",
+      "offset": {
+        "dx": 0.02,
+        "dy": 0,
+        "yaw_deg": 2
+      },
+      "run": "/home/kinetra-4090-01/code/zijian/experiments/20261001_start_variations/runs/start_02_pose_09_02",
+      "replay_status": "not_sampled",
+      "quality": {
+        "task_success": true,
+        "complete_sequence": true,
+        "control_steps": 1071,
+        "duration_s": 21.42,
+        "strict_final_hold_s": 4.48,
+        "final_clearance_m": 0.12406391171194553,
+        "final3s_opposed_fraction": 1.0,
+        "final3s_slip_m": 0.00019684827252368134,
+        "final3s_rotation_deg": 0.11293206734153918,
+        "minimum_pelvis_z_m": 0.7529200911521912,
+        "monitored_table_force_peak_N": 0.0,
+        "contact_samples": 4284,
+        "stop_reason": null,
+        "profile": "generate",
+        "elapsed_capture_s": 196.17344142400543,
+        "training_ready": false,
+        "visual_review": "pending",
+        "validation_scope": "Terminal 3s grasp and aggregate online guards; no full trajectory equivalence check"
+      }
+    },
+    {
+      "name": "start_03_pose_09_00",
+      "offset": {
+        "dx": 0,
+        "dy": -0.025,
+        "yaw_deg": 0
+      },
+      "run": "/home/kinetra-4090-01/code/zijian/experiments/20261001_start_variations/runs/start_03_pose_09_00",
+      "replay_status": "not_sampled",
+      "quality": {
+        "task_success": true,
+        "complete_sequence": true,
+        "control_steps": 1076,
+        "duration_s": 21.52,
+        "strict_final_hold_s": 4.44,
+        "final_clearance_m": 0.1283470240511546,
+        "final3s_opposed_fraction": 1.0,
+        "final3s_slip_m": 0.0002938035390909462,
+        "final3s_rotation_deg": 0.12335154883017764,
+        "minimum_pelvis_z_m": 0.7533541917800903,
+        "monitored_table_force_peak_N": 0.0,
+        "contact_samples": 4304,
+        "stop_reason": null,
+        "profile": "generate",
+        "elapsed_capture_s": 198.56971379100287,
+        "training_ready": false,
+        "visual_review": "pending",
+        "validation_scope": "Terminal 3s grasp and aggregate online guards; no full trajectory equivalence check"
+      }
+    },
+    {
+      "name": "start_04_pose_09_04",
+      "offset": {
+        "dx": -0.015,
+        "dy": 0.015,
+        "yaw_deg": 1
+      },
+      "run": "/home/kinetra-4090-01/code/zijian/experiments/20261001_start_variations/runs/start_04_pose_09_04_brake020",
+      "replay_status": "sampled_passed",
+      "quality": {
+        "task_success": true,
+        "complete_sequence": true,
+        "control_steps": 1066,
+        "duration_s": 21.32,
+        "strict_final_hold_s": 4.44,
+        "final_clearance_m": 0.12974008176134877,
+        "final3s_opposed_fraction": 1.0,
+        "final3s_slip_m": 0.0003428277241759623,
+        "final3s_rotation_deg": 0.15533363039374434,
+        "minimum_pelvis_z_m": 0.7512547373771667,
+        "monitored_table_force_peak_N": 0.0,
+        "contact_samples": 4264,
+        "stop_reason": null,
+        "profile": "generate",
+        "elapsed_capture_s": 189.09837232000427,
+        "training_ready": false,
+        "visual_review": "pending",
+        "validation_scope": "Terminal 3s grasp and aggregate online guards; no full trajectory equivalence check"
+      }
+    },
+    {
+      "name": "start_05_pose_09_03",
+      "offset": {
+        "dx": 0.015,
+        "dy": -0.015,
+        "yaw_deg": -1
+      },
+      "run": "/home/kinetra-4090-01/code/zijian/experiments/20261001_start_variations/runs/start_05_pose_09_03",
+      "replay_status": "sampled_passed",
+      "quality": {
+        "task_success": true,
+        "complete_sequence": true,
+        "control_steps": 1076,
+        "duration_s": 21.52,
+        "strict_final_hold_s": 4.42,
+        "final_clearance_m": 0.1281138121727694,
+        "final3s_opposed_fraction": 1.0,
+        "final3s_slip_m": 0.00019933330536453482,
+        "final3s_rotation_deg": 0.10493565335251294,
+        "minimum_pelvis_z_m": 0.7529076337814331,
+        "monitored_table_force_peak_N": 0.0,
+        "contact_samples": 4304,
+        "stop_reason": null,
+        "profile": "generate",
+        "elapsed_capture_s": 202.19591083700652,
+        "training_ready": false,
+        "visual_review": "pending",
+        "validation_scope": "Terminal 3s grasp and aggregate online guards; no full trajectory equivalence check"
+      }
+    },
+    {
+      "name": "start_06_pose_09_01",
+      "offset": {
+        "dx": -0.02,
+        "dy": -0.015,
+        "yaw_deg": 1
+      },
+      "run": "/home/kinetra-4090-01/code/zijian/experiments/20261001_start_variations/runs/start_06_pose_09_01",
+      "replay_status": "not_sampled",
+      "quality": {
+        "task_success": true,
+        "complete_sequence": true,
+        "control_steps": 1071,
+        "duration_s": 21.42,
+        "strict_final_hold_s": 4.42,
+        "final_clearance_m": 0.11724086233669961,
+        "final3s_opposed_fraction": 1.0,
+        "final3s_slip_m": 0.0006273540753085624,
+        "final3s_rotation_deg": 0.35034557029102126,
+        "minimum_pelvis_z_m": 0.7522097229957581,
+        "monitored_table_force_peak_N": 0.0,
+        "contact_samples": 4284,
+        "stop_reason": null,
+        "profile": "generate",
+        "elapsed_capture_s": 198.25728149199858,
+        "training_ready": false,
+        "visual_review": "pending",
+        "validation_scope": "Terminal 3s grasp and aggregate online guards; no full trajectory equivalence check"
+      }
+    },
+    {
+      "name": "start_07_pose_09_02",
+      "offset": {
+        "dx": 0.02,
+        "dy": 0.015,
+        "yaw_deg": -1
+      },
+      "run": "/home/kinetra-4090-01/code/zijian/experiments/20261001_start_variations/runs/start_07_pose_09_02_brake028",
+      "replay_status": "sampled_passed",
+      "quality": {
+        "task_success": true,
+        "complete_sequence": true,
+        "control_steps": 1056,
+        "duration_s": 21.12,
+        "strict_final_hold_s": 4.42,
+        "final_clearance_m": 0.12910060209038,
+        "final3s_opposed_fraction": 1.0,
+        "final3s_slip_m": 0.00017274876614397668,
+        "final3s_rotation_deg": 0.07287183315673224,
+        "minimum_pelvis_z_m": 0.7535206079483032,
+        "monitored_table_force_peak_N": 0.0,
+        "contact_samples": 4224,
+        "stop_reason": null,
+        "profile": "generate",
+        "elapsed_capture_s": 191.0375747440121,
+        "training_ready": false,
+        "visual_review": "pending",
+        "validation_scope": "Terminal 3s grasp and aggregate online guards; no full trajectory equivalence check"
+      }
+    },
+    {
+      "name": "start_08_pose_09_00",
+      "offset": {
+        "dx": -0.01,
+        "dy": -0.025,
+        "yaw_deg": 2
+      },
+      "run": "/home/kinetra-4090-01/code/zijian/experiments/20261001_start_variations/runs/start_08_pose_09_00_brake028",
+      "replay_status": "sampled_passed",
+      "quality": {
+        "task_success": true,
+        "complete_sequence": true,
+        "control_steps": 1071,
+        "duration_s": 21.42,
+        "strict_final_hold_s": 4.42,
+        "final_clearance_m": 0.13798134120240357,
+        "final3s_opposed_fraction": 1.0,
+        "final3s_slip_m": 0.00832236718094689,
+        "final3s_rotation_deg": 4.063468006578721,
+        "minimum_pelvis_z_m": 0.7527680397033691,
+        "monitored_table_force_peak_N": 0.0,
+        "contact_samples": 4284,
+        "stop_reason": null,
+        "profile": "generate",
+        "elapsed_capture_s": 180.5876533230039,
+        "training_ready": false,
+        "visual_review": "pending",
+        "validation_scope": "Terminal 3s grasp and aggregate online guards; no full trajectory equivalence check"
+      }
+    },
+    {
+      "name": "start_09_pose_09_04",
+      "offset": {
+        "dx": 0.01,
+        "dy": 0.02,
+        "yaw_deg": -2
+      },
+      "run": "/home/kinetra-4090-01/code/zijian/experiments/20261001_start_variations/runs/start_09_pose_09_04",
+      "replay_status": "not_sampled",
+      "quality": {
+        "task_success": true,
+        "complete_sequence": true,
+        "control_steps": 1066,
+        "duration_s": 21.32,
+        "strict_final_hold_s": 4.46,
+        "final_clearance_m": 0.1303727583716927,
+        "final3s_opposed_fraction": 1.0,
+        "final3s_slip_m": 0.0003876455601059388,
+        "final3s_rotation_deg": 0.19040777470361167,
+        "minimum_pelvis_z_m": 0.7533828616142273,
+        "monitored_table_force_peak_N": 0.0,
+        "contact_samples": 4264,
+        "stop_reason": null,
+        "profile": "generate",
+        "elapsed_capture_s": 197.30459347600117,
+        "training_ready": false,
+        "visual_review": "pending",
+        "validation_scope": "Terminal 3s grasp and aggregate online guards; no full trajectory equivalence check"
+      }
+    },
+    {
+      "name": "start_10_pose_09_03",
+      "offset": {
+        "dx": 0,
+        "dy": 0.025,
+        "yaw_deg": 1
+      },
+      "run": "/home/kinetra-4090-01/code/zijian/experiments/20261001_start_variations/runs/start_10_pose_09_03",
+      "replay_status": "sampled_passed",
+      "quality": {
+        "task_success": true,
+        "complete_sequence": true,
+        "control_steps": 1066,
+        "duration_s": 21.32,
+        "strict_final_hold_s": 4.44,
+        "final_clearance_m": 0.13700941950876555,
+        "final3s_opposed_fraction": 1.0,
+        "final3s_slip_m": 3.8115237347036234e-05,
+        "final3s_rotation_deg": 0.018115808728162514,
+        "minimum_pelvis_z_m": 0.7534080743789673,
+        "monitored_table_force_peak_N": 0.0,
+        "contact_samples": 4264,
+        "stop_reason": null,
+        "profile": "generate",
+        "elapsed_capture_s": 238.28629959399404,
+        "training_ready": false,
+        "visual_review": "pending",
+        "validation_scope": "Terminal 3s grasp and aggregate online guards; no full trajectory equivalence check"
+      }
+    }
+  ],
+  "slow_replay_note": "Last replay capture took 683.73s; nvidia-smi showed a second Python GPU workload at 11:23:47. Resource contention is possible but not proven by a component profile."
+}

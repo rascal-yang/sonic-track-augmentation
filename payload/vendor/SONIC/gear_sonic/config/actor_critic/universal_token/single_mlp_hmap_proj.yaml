@@ -1,0 +1,58 @@
+# @package _global_
+# Single MLP encoder with 2D conv height-map projector and plain (privileged) critic.
+# Variant of single_mlp_depth_gru_depthcritic with:
+#   - depth_image encoder input replaced by height_map_z_flat (conv2d projector, 11x11).
+#   - hmap_pred aux decoder dropped (hmap is now an encoder input — predicting it is trivial).
+#   - depth-aware critic replaced with plain privileged MLP critic.
+
+defaults:
+  - critics/mlp@algo.config.critic
+  - quantizers/fsq@algo.config.actor.backbone.quantizer
+  # encoders
+  - encoders/g1_mf_mlp@algo.config.actor.backbone.encoders
+  # decoders
+  - decoders/g1_dyn_mlp@algo.config.actor.backbone.decoders
+  - decoders/g1_kin_mf_mlp@algo.config.actor.backbone.decoders
+
+
+manager_env:
+  commands:
+    motion:
+      encoder_sample_probs:
+        g1: 1.0
+        teleop: 1.0
+        smpl: 1.0
+
+algo:
+  config:
+    actor:
+      _target_: gear_sonic.trl.modules.actor_critic_modules.Actor
+      running_mean_std: False
+      input_obs_dict: True
+      has_aux_loss: True
+      backbone:
+        _target_: gear_sonic.trl.modules.universal_token_modules.UniversalTokenModule
+        num_future_frames: ${manager_env.commands.motion.num_future_frames}
+        proprioception_features: ["actor_obs"]
+        encoder_sample_probs: ${manager_env.commands.motion.encoder_sample_probs}
+        num_fsq_levels: 32
+        fsq_level_list: 32
+        max_num_tokens: 2
+        encoders:
+          g1:
+            inputs: ["command_multi_future_nonflat", "motion_anchor_ori_b_mf_nonflat", "height_map_z_flat"]
+            input_projectors:
+              height_map_z_flat:
+                type: conv2d
+                input_shape: [1, 11, 11]
+                channels: [16, 32]
+                kernel_sizes: [3, 3]
+                strides: [1, 1]
+                paddings: [1, 1]
+                use_maxpool: true
+                hidden_dims: [128]
+                output_dim: 128
+                activation: ReLU
+        decoders:
+          g1_kin:
+            outputs: ["command_multi_future_nonflat", "motion_anchor_ori_b_mf_nonflat"]

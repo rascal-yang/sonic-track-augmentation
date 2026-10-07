@@ -1,0 +1,26 @@
+[
+  {
+    "path": "__RUNTIME__/workspace/asset_tasks/20260925_measured_scene/assets/scene.usda",
+    "sha256": "1815e626b16f3e643eee78df0b0a8df9e0cfd6fec60590bca06275d9b1215a03"
+  },
+  {
+    "path": "__RUNTIME__/workspace/asset_tasks/20260925_measured_scene/assets/bottle/bottle.usda",
+    "sha256": "e902bef1dd9928a40a212c8c43eeb2d29b49e0c6d2505d24484e94c1ec08abab"
+  },
+  {
+    "path": "__RUNTIME__/workspace/asset_tasks/20260925_measured_scene/assets/robot/g1.usda",
+    "sha256": "7a813126e172d0523d22b8eb4903defb37179c541f1e655f3c3f63743b893fb9"
+  },
+  {
+    "path": "__RUNTIME__/workspace/asset_tasks/20260925_measured_scene/assets/robot/revo2_left.usda",
+    "sha256": "4e8e2de1b5dc6b43081872a610998950bfc751a4c3f01c9b3010f7581eaf1a06"
+  },
+  {
+    "path": "__RUNTIME__/workspace/asset_tasks/20260925_measured_scene/assets/robot/revo2_right.usda",
+    "sha256": "99809314a6b8e09fff09849abc686b7ddc00e1030ef6c88d5ac184904071bf8b"
+  },
+  {
+    "path": "__RUNTIME__/workspace/experiments/20260925_measured_walk_grasp/assets/water_bottle_v1/collision_source.npz",
+    "sha256": "6b3c6322742cb4537dc93aea827250a37d8f243bf195808bfea86d93d77361bd"
+  }
+]

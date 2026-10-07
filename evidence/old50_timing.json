@@ -1,0 +1,1023 @@
+{
+  "generated_at": "2026-10-01T01:20:38.402847+00:00",
+  "completed_pairs": 50,
+  "episodes": [
+    {
+      "name": "pose_01_02_walk",
+      "first": {
+        "prepare_s": 0.16399908065795898,
+        "startup_to_first_decision_s": 20.440918922424316,
+        "execution_between_decisions_s": 751.966136932373,
+        "final_step_pack_exit_s": 16.787973165512085,
+        "validation_s": 3.788994550704956
+      },
+      "replay": {
+        "prepare_s": 0.16399908065795898,
+        "startup_to_first_decision_s": 20.642968893051147,
+        "execution_between_decisions_s": 286.15161657333374,
+        "final_step_pack_exit_s": 14.780981540679932,
+        "validation_s": 3.8519957065582275
+      },
+      "first_cleanup_lossless_pack_s": 36.94494342803955,
+      "replay_cleanup_s": 0.7519991397857666,
+      "total_s": 1156.4365270137787
+    },
+    {
+      "name": "pose_00_01_walk",
+      "first": {
+        "prepare_s": 0.16399908065795898,
+        "startup_to_first_decision_s": 19.51397705078125,
+        "execution_between_decisions_s": 289.6896741390228,
+        "final_step_pack_exit_s": 15.077983856201172,
+        "validation_s": 4.010995864868164
+      },
+      "replay": {
+        "prepare_s": 0.16399908065795898,
+        "startup_to_first_decision_s": 18.4149808883667,
+        "execution_between_decisions_s": 288.08371210098267,
+        "final_step_pack_exit_s": 14.676984786987305,
+        "validation_s": 3.8199973106384277
+      },
+      "first_cleanup_lossless_pack_s": 37.0129611492157,
+      "replay_cleanup_s": 0.7369992733001709,
+      "total_s": 691.3662645816803
+    },
+    {
+      "name": "pose_06_03_walk",
+      "first": {
+        "prepare_s": 0.26400017738342285,
+        "startup_to_first_decision_s": 19.483980894088745,
+        "execution_between_decisions_s": 296.2457203865051,
+        "final_step_pack_exit_s": 14.995985507965088,
+        "validation_s": 4.145996809005737
+      },
+      "replay": {
+        "prepare_s": 0.21500015258789062,
+        "startup_to_first_decision_s": 17.874982833862305,
+        "execution_between_decisions_s": 291.56473445892334,
+        "final_step_pack_exit_s": 14.641986608505249,
+        "validation_s": 3.851996660232544
+      },
+      "first_cleanup_lossless_pack_s": 37.04896521568298,
+      "replay_cleanup_s": 0.7249994277954102,
+      "total_s": 701.0583491325378
+    },
+    {
+      "name": "pose_00_04_walk",
+      "first": {
+        "prepare_s": 0.3139989376068115,
+        "startup_to_first_decision_s": 19.293982982635498,
+        "execution_between_decisions_s": 292.5307376384735,
+        "final_step_pack_exit_s": 15.10398554801941,
+        "validation_s": 3.855997323989868
+      },
+      "replay": {
+        "prepare_s": 0.1640000343322754,
+        "startup_to_first_decision_s": 18.22498393058777,
+        "execution_between_decisions_s": 282.7817482948303,
+        "final_step_pack_exit_s": 14.86898684501648,
+        "validation_s": 3.90299654006958
+      },
+      "first_cleanup_lossless_pack_s": 36.99096655845642,
+      "replay_cleanup_s": 0.7529993057250977,
+      "total_s": 688.785383939743
+    },
+    {
+      "name": "pose_05_03_walk",
+      "first": {
+        "prepare_s": 0.26400017738342285,
+        "startup_to_first_decision_s": 20.156981945037842,
+        "execution_between_decisions_s": 303.9997310638428,
+        "final_step_pack_exit_s": 14.977985858917236,
+        "validation_s": 3.7889976501464844
+      },
+      "replay": {
+        "prepare_s": 0.1640000343322754,
+        "startup_to_first_decision_s": 18.2499840259552,
+        "execution_between_decisions_s": 293.7307405471802,
+        "final_step_pack_exit_s": 14.846986293792725,
+        "validation_s": 3.859997272491455
+      },
+      "first_cleanup_lossless_pack_s": 37.01196646690369,
+      "replay_cleanup_s": 0.7509992122650146,
+      "total_s": 711.8023705482483
+    },
+    {
+      "name": "pose_05_01_walk",
+      "first": {
+        "prepare_s": 0.31399989128112793,
+        "startup_to_first_decision_s": 24.93897795677185,
+        "execution_between_decisions_s": 292.8037414550781,
+        "final_step_pack_exit_s": 14.836986541748047,
+        "validation_s": 3.738996982574463
+      },
+      "replay": {
+        "prepare_s": 0.16499996185302734,
+        "startup_to_first_decision_s": 18.003983974456787,
+        "execution_between_decisions_s": 301.67573404312134,
+        "final_step_pack_exit_s": 15.44498586654663,
+        "validation_s": 5.215995788574219
+      },
+      "first_cleanup_lossless_pack_s": 36.754967212677,
+      "replay_cleanup_s": 2.8339974880218506,
+      "total_s": 716.7273671627045
+    },
+    {
+      "name": "pose_03_03_walk",
+      "first": {
+        "prepare_s": 0.36499905586242676,
+        "startup_to_first_decision_s": 53.16895389556885,
+        "execution_between_decisions_s": 313.79472303390503,
+        "final_step_pack_exit_s": 15.067986011505127,
+        "validation_s": 3.746997356414795
+      },
+      "replay": {
+        "prepare_s": 0.1639997959136963,
+        "startup_to_first_decision_s": 18.23698401451111,
+        "execution_between_decisions_s": 284.7917492389679,
+        "final_step_pack_exit_s": 14.849986791610718,
+        "validation_s": 3.8069968223571777
+      },
+      "first_cleanup_lossless_pack_s": 36.856966733932495,
+      "replay_cleanup_s": 0.7519993782043457,
+      "total_s": 745.6023421287537
+    },
+    {
+      "name": "pose_07_03_walk",
+      "first": {
+        "prepare_s": 0.3139989376068115,
+        "startup_to_first_decision_s": 19.65898299217224,
+        "execution_between_decisions_s": 289.6667449474335,
+        "final_step_pack_exit_s": 14.95698618888855,
+        "validation_s": 3.788997173309326
+      },
+      "replay": {
+        "prepare_s": 0.16500020027160645,
+        "startup_to_first_decision_s": 18.027983903884888,
+        "execution_between_decisions_s": 281.317752122879,
+        "final_step_pack_exit_s": 14.784986972808838,
+        "validation_s": 3.8119966983795166
+      },
+      "first_cleanup_lossless_pack_s": 37.130966663360596,
+      "replay_cleanup_s": 0.7269992828369141,
+      "total_s": 684.3513960838318
+    },
+    {
+      "name": "pose_06_02_walk",
+      "first": {
+        "prepare_s": 0.26399898529052734,
+        "startup_to_first_decision_s": 19.457983016967773,
+        "execution_between_decisions_s": 292.5197424888611,
+        "final_step_pack_exit_s": 14.851986646652222,
+        "validation_s": 3.785996913909912
+      },
+      "replay": {
+        "prepare_s": 0.1640000343322754,
+        "startup_to_first_decision_s": 18.19598412513733,
+        "execution_between_decisions_s": 284.45074915885925,
+        "final_step_pack_exit_s": 14.829986810684204,
+        "validation_s": 3.8039968013763428
+      },
+      "first_cleanup_lossless_pack_s": 36.72296690940857,
+      "replay_cleanup_s": 0.7449994087219238,
+      "total_s": 689.7923913002014
+    },
+    {
+      "name": "pose_02_01_walk",
+      "first": {
+        "prepare_s": 0.3139989376068115,
+        "startup_to_first_decision_s": 19.590982913970947,
+        "execution_between_decisions_s": 294.42774081230164,
+        "final_step_pack_exit_s": 14.91598629951477,
+        "validation_s": 3.8959970474243164
+      },
+      "replay": {
+        "prepare_s": 0.21399998664855957,
+        "startup_to_first_decision_s": 17.877984046936035,
+        "execution_between_decisions_s": 280.2447531223297,
+        "final_step_pack_exit_s": 15.056985855102539,
+        "validation_s": 3.9539973735809326
+      },
+      "first_cleanup_lossless_pack_s": 37.08196687698364,
+      "replay_cleanup_s": 0.7699992656707764,
+      "total_s": 688.3443925380707
+    },
+    {
+      "name": "pose_08_04_walk",
+      "first": {
+        "prepare_s": 0.26600003242492676,
+        "startup_to_first_decision_s": 19.61698293685913,
+        "execution_between_decisions_s": 385.05166029930115,
+        "final_step_pack_exit_s": 15.16398572921753,
+        "validation_s": 3.687997579574585
+      },
+      "replay": {
+        "prepare_s": 0.16499996185302734,
+        "startup_to_first_decision_s": 18.149983882904053,
+        "execution_between_decisions_s": 286.1127483844757,
+        "final_step_pack_exit_s": 14.917986631393433,
+        "validation_s": 3.8859965801239014
+      },
+      "first_cleanup_lossless_pack_s": 37.0869665145874,
+      "replay_cleanup_s": 0.7159993648529053,
+      "total_s": 784.8213078975677
+    },
+    {
+      "name": "pose_00_03_walk",
+      "first": {
+        "prepare_s": 0.21399998664855957,
+        "startup_to_first_decision_s": 19.721982955932617,
+        "execution_between_decisions_s": 297.3977379798889,
+        "final_step_pack_exit_s": 15.007986068725586,
+        "validation_s": 3.790997266769409
+      },
+      "replay": {
+        "prepare_s": 0.1640000343322754,
+        "startup_to_first_decision_s": 18.442984104156494,
+        "execution_between_decisions_s": 301.1117343902588,
+        "final_step_pack_exit_s": 14.931986570358276,
+        "validation_s": 3.7499969005584717
+      },
+      "first_cleanup_lossless_pack_s": 37.058966636657715,
+      "replay_cleanup_s": 0.7559993267059326,
+      "total_s": 712.348372220993
+    },
+    {
+      "name": "pose_09_01_walk",
+      "first": {
+        "prepare_s": 0.41499876976013184,
+        "startup_to_first_decision_s": 20.072983026504517,
+        "execution_between_decisions_s": 295.25376772880554,
+        "final_step_pack_exit_s": 15.200123310089111,
+        "validation_s": 3.791276454925537
+      },
+      "replay": {
+        "prepare_s": 0.16401100158691406,
+        "startup_to_first_decision_s": 18.081217050552368,
+        "execution_between_decisions_s": 385.1592962741852,
+        "final_step_pack_exit_s": 14.84654974937439,
+        "validation_s": 3.9041435718536377
+      },
+      "first_cleanup_lossless_pack_s": 36.871596574783325,
+      "replay_cleanup_s": 0.7770283222198486,
+      "total_s": 794.5369918346405
+    },
+    {
+      "name": "pose_01_04_walk",
+      "first": {
+        "prepare_s": 0.3640129566192627,
+        "startup_to_first_decision_s": 21.28976607322693,
+        "execution_between_decisions_s": 297.3388352394104,
+        "final_step_pack_exit_s": 14.950369834899902,
+        "validation_s": 3.83809494972229
+      },
+      "replay": {
+        "prepare_s": 0.16500401496887207,
+        "startup_to_first_decision_s": 18.14342498779297,
+        "execution_between_decisions_s": 288.14290380477905,
+        "final_step_pack_exit_s": 14.893270254135132,
+        "validation_s": 3.862069845199585
+      },
+      "first_cleanup_lossless_pack_s": 37.12589192390442,
+      "replay_cleanup_s": 0.7600135803222656,
+      "total_s": 700.8736574649811
+    },
+    {
+      "name": "pose_09_02_walk",
+      "first": {
+        "prepare_s": 0.1640028953552246,
+        "startup_to_first_decision_s": 19.575350046157837,
+        "execution_between_decisions_s": 293.2767856121063,
+        "final_step_pack_exit_s": 14.97622537612915,
+        "validation_s": 3.8510582447052
+      },
+      "replay": {
+        "prepare_s": 0.16500282287597656,
+        "startup_to_first_decision_s": 18.149267196655273,
+        "execution_between_decisions_s": 816.3057613372803,
+        "final_step_pack_exit_s": 15.63219165802002,
+        "validation_s": 3.9610493183135986
+      },
+      "first_cleanup_lossless_pack_s": 37.0615508556366,
+      "replay_cleanup_s": 0.7690093517303467,
+      "total_s": 1223.8872547149658
+    },
+    {
+      "name": "pose_08_00_walk",
+      "first": {
+        "prepare_s": 0.3150041103363037,
+        "startup_to_first_decision_s": 24.102295875549316,
+        "execution_between_decisions_s": 768.8992211818695,
+        "final_step_pack_exit_s": 14.99217700958252,
+        "validation_s": 3.9940476417541504
+      },
+      "replay": {
+        "prepare_s": 0.16900205612182617,
+        "startup_to_first_decision_s": 18.204215049743652,
+        "execution_between_decisions_s": 298.45551896095276,
+        "final_step_pack_exit_s": 14.917175054550171,
+        "validation_s": 3.9640471935272217
+      },
+      "first_cleanup_lossless_pack_s": 37.39344120025635,
+      "replay_cleanup_s": 0.7230086326599121,
+      "total_s": 1186.1291539669037
+    },
+    {
+      "name": "pose_03_01_walk",
+      "first": {
+        "prepare_s": 0.26400303840637207,
+        "startup_to_first_decision_s": 19.891233921051025,
+        "execution_between_decisions_s": 395.9146513938904,
+        "final_step_pack_exit_s": 15.174177646636963,
+        "validation_s": 3.9020462036132812
+      },
+      "replay": {
+        "prepare_s": 0.16500210762023926,
+        "startup_to_first_decision_s": 18.19821286201477,
+        "execution_between_decisions_s": 295.16946172714233,
+        "final_step_pack_exit_s": 15.01217532157898,
+        "validation_s": 3.9140465259552
+      },
+      "first_cleanup_lossless_pack_s": 37.59744071960449,
+      "replay_cleanup_s": 0.7510087490081787,
+      "total_s": 805.9534602165222
+    },
+    {
+      "name": "pose_08_03_walk",
+      "first": {
+        "prepare_s": 0.21500205993652344,
+        "startup_to_first_decision_s": 19.96623396873474,
+        "execution_between_decisions_s": 400.80169677734375,
+        "final_step_pack_exit_s": 15.170177221298218,
+        "validation_s": 3.8940460681915283
+      },
+      "replay": {
+        "prepare_s": 0.21500301361083984,
+        "startup_to_first_decision_s": 19.3402259349823,
+        "execution_between_decisions_s": 539.5823202133179,
+        "final_step_pack_exit_s": 14.870173931121826,
+        "validation_s": 3.916046142578125
+      },
+      "first_cleanup_lossless_pack_s": 37.04343295097351,
+      "replay_cleanup_s": 0.7660088539123535,
+      "total_s": 1055.7803671360016
+    },
+    {
+      "name": "pose_03_02_walk",
+      "first": {
+        "prepare_s": 0.265002965927124,
+        "startup_to_first_decision_s": 19.98323392868042,
+        "execution_between_decisions_s": 1425.093686580658,
+        "final_step_pack_exit_s": 15.332179546356201,
+        "validation_s": 3.797044515609741
+      },
+      "replay": {
+        "prepare_s": 0.1640019416809082,
+        "startup_to_first_decision_s": 22.27726101875305,
+        "execution_between_decisions_s": 537.8532974720001,
+        "final_step_pack_exit_s": 16.75519561767578,
+        "validation_s": 4.467052936553955
+      },
+      "first_cleanup_lossless_pack_s": 36.88043141365051,
+      "replay_cleanup_s": 0.9570112228393555,
+      "total_s": 2083.825399160385
+    },
+    {
+      "name": "pose_02_02_walk",
+      "first": {
+        "prepare_s": 0.21700215339660645,
+        "startup_to_first_decision_s": 24.022281885147095,
+        "execution_between_decisions_s": 409.9077994823456,
+        "final_step_pack_exit_s": 14.953174591064453,
+        "validation_s": 3.850045680999756
+      },
+      "replay": {
+        "prepare_s": 0.22800183296203613,
+        "startup_to_first_decision_s": 18.941222190856934,
+        "execution_between_decisions_s": 291.54741406440735,
+        "final_step_pack_exit_s": 15.03717589378357,
+        "validation_s": 3.9630465507507324
+      },
+      "first_cleanup_lossless_pack_s": 37.628440380096436,
+      "replay_cleanup_s": 0.7760090827941895,
+      "total_s": 821.0716137886047
+    },
+    {
+      "name": "pose_07_04_walk",
+      "first": {
+        "prepare_s": 0.268002986907959,
+        "startup_to_first_decision_s": 20.023235082626343,
+        "execution_between_decisions_s": 1014.4508781433105,
+        "final_step_pack_exit_s": 15.33617877960205,
+        "validation_s": 3.838045597076416
+      },
+      "replay": {
+        "prepare_s": 0.2140030860900879,
+        "startup_to_first_decision_s": 18.82721996307373,
+        "execution_between_decisions_s": 586.2538645267487,
+        "final_step_pack_exit_s": 14.946174383163452,
+        "validation_s": 3.8040452003479004
+      },
+      "first_cleanup_lossless_pack_s": 37.065433502197266,
+      "replay_cleanup_s": 0.7880091667175293,
+      "total_s": 1715.815090417862
+    },
+    {
+      "name": "pose_06_04_walk",
+      "first": {
+        "prepare_s": 0.265002965927124,
+        "startup_to_first_decision_s": 20.255236864089966,
+        "execution_between_decisions_s": 300.7045216560364,
+        "final_step_pack_exit_s": 14.916174411773682,
+        "validation_s": 3.74104380607605
+      },
+      "replay": {
+        "prepare_s": 0.1640021800994873,
+        "startup_to_first_decision_s": 19.10322380065918,
+        "execution_between_decisions_s": 285.4703426361084,
+        "final_step_pack_exit_s": 14.95717453956604,
+        "validation_s": 4.008047580718994
+      },
+      "first_cleanup_lossless_pack_s": 36.86143112182617,
+      "replay_cleanup_s": 0.7690088748931885,
+      "total_s": 701.2152104377747
+    },
+    {
+      "name": "pose_01_03_walk",
+      "first": {
+        "prepare_s": 0.265002965927124,
+        "startup_to_first_decision_s": 19.700231075286865,
+        "execution_between_decisions_s": 304.3495638370514,
+        "final_step_pack_exit_s": 15.084176301956177,
+        "validation_s": 3.897045850753784
+      },
+      "replay": {
+        "prepare_s": 0.1640019416809082,
+        "startup_to_first_decision_s": 18.336215019226074,
+        "execution_between_decisions_s": 293.0204312801361,
+        "final_step_pack_exit_s": 14.874173641204834,
+        "validation_s": 3.760044574737549
+      },
+      "first_cleanup_lossless_pack_s": 38.24644708633423,
+      "replay_cleanup_s": 0.7600088119506836,
+      "total_s": 712.4573423862457
+    },
+    {
+      "name": "pose_00_02_walk",
+      "first": {
+        "prepare_s": 0.3170039653778076,
+        "startup_to_first_decision_s": 19.815232038497925,
+        "execution_between_decisions_s": 292.44342398643494,
+        "final_step_pack_exit_s": 14.918173789978027,
+        "validation_s": 3.6940441131591797
+      },
+      "replay": {
+        "prepare_s": 0.16500186920166016,
+        "startup_to_first_decision_s": 18.35821509361267,
+        "execution_between_decisions_s": 281.356294631958,
+        "final_step_pack_exit_s": 14.816173315048218,
+        "validation_s": 3.8840456008911133
+      },
+      "first_cleanup_lossless_pack_s": 37.267436027526855,
+      "replay_cleanup_s": 0.727008581161499,
+      "total_s": 687.7620530128479
+    },
+    {
+      "name": "pose_02_00_walk",
+      "first": {
+        "prepare_s": 0.1640019416809082,
+        "startup_to_first_decision_s": 19.930233001708984,
+        "execution_between_decisions_s": 297.1014790534973,
+        "final_step_pack_exit_s": 14.897173881530762,
+        "validation_s": 3.6980438232421875
+      },
+      "replay": {
+        "prepare_s": 0.17000198364257812,
+        "startup_to_first_decision_s": 19.108224153518677,
+        "execution_between_decisions_s": 281.51629638671875,
+        "final_step_pack_exit_s": 15.011175632476807,
+        "validation_s": 3.9520463943481445
+      },
+      "first_cleanup_lossless_pack_s": 36.97543215751648,
+      "replay_cleanup_s": 0.7570087909698486,
+      "total_s": 693.2811172008514
+    },
+    {
+      "name": "pose_01_00_walk",
+      "first": {
+        "prepare_s": 0.21400189399719238,
+        "startup_to_first_decision_s": 21.419250965118408,
+        "execution_between_decisions_s": 290.0913972854614,
+        "final_step_pack_exit_s": 14.966174840927124,
+        "validation_s": 3.7140438556671143
+      },
+      "replay": {
+        "prepare_s": 0.1640019416809082,
+        "startup_to_first_decision_s": 18.452215909957886,
+        "execution_between_decisions_s": 281.62629771232605,
+        "final_step_pack_exit_s": 14.80317234992981,
+        "validation_s": 3.8650460243225098
+      },
+      "first_cleanup_lossless_pack_s": 36.8314311504364,
+      "replay_cleanup_s": 0.8530101776123047,
+      "total_s": 687.0000441074371
+    },
+    {
+      "name": "pose_02_04_walk",
+      "first": {
+        "prepare_s": 0.21400213241577148,
+        "startup_to_first_decision_s": 19.927233934402466,
+        "execution_between_decisions_s": 291.12940859794617,
+        "final_step_pack_exit_s": 14.869173288345337,
+        "validation_s": 3.6980443000793457
+      },
+      "replay": {
+        "prepare_s": 0.17000198364257812,
+        "startup_to_first_decision_s": 18.227213144302368,
+        "execution_between_decisions_s": 282.3393063545227,
+        "final_step_pack_exit_s": 14.807172536849976,
+        "validation_s": 3.9030466079711914
+      },
+      "first_cleanup_lossless_pack_s": 36.83643078804016,
+      "replay_cleanup_s": 0.7650089263916016,
+      "total_s": 686.8860425949097
+    },
+    {
+      "name": "pose_04_01_walk",
+      "first": {
+        "prepare_s": 0.1640019416809082,
+        "startup_to_first_decision_s": 19.911232948303223,
+        "execution_between_decisions_s": 289.00538444519043,
+        "final_step_pack_exit_s": 14.91617465019226,
+        "validation_s": 3.6930432319641113
+      },
+      "replay": {
+        "prepare_s": 0.1640019416809082,
+        "startup_to_first_decision_s": 18.604218006134033,
+        "execution_between_decisions_s": 283.1623156070709,
+        "final_step_pack_exit_s": 14.810172319412231,
+        "validation_s": 3.8050456047058105
+      },
+      "first_cleanup_lossless_pack_s": 37.414437770843506,
+      "replay_cleanup_s": 0.7520086765289307,
+      "total_s": 686.4020371437073
+    },
+    {
+      "name": "pose_06_01_walk",
+      "first": {
+        "prepare_s": 0.21500205993652344,
+        "startup_to_first_decision_s": 19.56122899055481,
+        "execution_between_decisions_s": 287.20036339759827,
+        "final_step_pack_exit_s": 14.916174411773682,
+        "validation_s": 3.7910447120666504
+      },
+      "replay": {
+        "prepare_s": 0.1660020351409912,
+        "startup_to_first_decision_s": 18.189213037490845,
+        "execution_between_decisions_s": 284.2023284435272,
+        "final_step_pack_exit_s": 14.83617353439331,
+        "validation_s": 3.7710442543029785
+      },
+      "first_cleanup_lossless_pack_s": 37.26443529129028,
+      "replay_cleanup_s": 0.732008695602417,
+      "total_s": 684.845018863678
+    },
+    {
+      "name": "pose_04_02_walk",
+      "first": {
+        "prepare_s": 0.2140028476715088,
+        "startup_to_first_decision_s": 19.534229040145874,
+        "execution_between_decisions_s": 291.1524090766907,
+        "final_step_pack_exit_s": 14.89017391204834,
+        "validation_s": 3.737044334411621
+      },
+      "replay": {
+        "prepare_s": 0.1640019416809082,
+        "startup_to_first_decision_s": 17.945209980010986,
+        "execution_between_decisions_s": 284.87633633613586,
+        "final_step_pack_exit_s": 14.86017370223999,
+        "validation_s": 3.80904483795166
+      },
+      "first_cleanup_lossless_pack_s": 36.69942879676819,
+      "replay_cleanup_s": 0.7660090923309326,
+      "total_s": 688.6480638980865
+    },
+    {
+      "name": "pose_08_01_walk",
+      "first": {
+        "prepare_s": 0.1640009880065918,
+        "startup_to_first_decision_s": 19.725231170654297,
+        "execution_between_decisions_s": 289.3083882331848,
+        "final_step_pack_exit_s": 14.79817271232605,
+        "validation_s": 3.739044189453125
+      },
+      "replay": {
+        "prepare_s": 0.1640019416809082,
+        "startup_to_first_decision_s": 18.20521306991577,
+        "execution_between_decisions_s": 282.71731066703796,
+        "final_step_pack_exit_s": 14.852173328399658,
+        "validation_s": 3.7090439796447754
+      },
+      "first_cleanup_lossless_pack_s": 39.553462743759155,
+      "replay_cleanup_s": 0.7450087070465088,
+      "total_s": 687.6810517311096
+    },
+    {
+      "name": "pose_03_04_walk",
+      "first": {
+        "prepare_s": 0.2140030860900879,
+        "startup_to_first_decision_s": 19.68922996520996,
+        "execution_between_decisions_s": 290.86840629577637,
+        "final_step_pack_exit_s": 14.868173599243164,
+        "validation_s": 3.851045608520508
+      },
+      "replay": {
+        "prepare_s": 0.16500186920166016,
+        "startup_to_first_decision_s": 18.558218002319336,
+        "execution_between_decisions_s": 281.86630034446716,
+        "final_step_pack_exit_s": 14.849173784255981,
+        "validation_s": 3.8570451736450195
+      },
+      "first_cleanup_lossless_pack_s": 37.0904335975647,
+      "replay_cleanup_s": 0.7590088844299316,
+      "total_s": 686.6360402107239
+    },
+    {
+      "name": "pose_05_04_walk",
+      "first": {
+        "prepare_s": 0.1640019416809082,
+        "startup_to_first_decision_s": 19.88323211669922,
+        "execution_between_decisions_s": 287.7313697338104,
+        "final_step_pack_exit_s": 14.86517333984375,
+        "validation_s": 3.9940476417541504
+      },
+      "replay": {
+        "prepare_s": 0.1640019416809082,
+        "startup_to_first_decision_s": 17.95021104812622,
+        "execution_between_decisions_s": 276.3592357635498,
+        "final_step_pack_exit_s": 14.62017035484314,
+        "validation_s": 3.654043674468994
+      },
+      "first_cleanup_lossless_pack_s": 36.837430238723755,
+      "replay_cleanup_s": 0.7310085296630859,
+      "total_s": 676.9539263248444
+    },
+    {
+      "name": "pose_04_04_walk",
+      "first": {
+        "prepare_s": 0.3650040626525879,
+        "startup_to_first_decision_s": 19.283226013183594,
+        "execution_between_decisions_s": 281.3022940158844,
+        "final_step_pack_exit_s": 14.68917202949524,
+        "validation_s": 3.5970420837402344
+      },
+      "replay": {
+        "prepare_s": 0.1640019416809082,
+        "startup_to_first_decision_s": 17.64020609855652,
+        "execution_between_decisions_s": 275.34222435951233,
+        "final_step_pack_exit_s": 14.65017056465149,
+        "validation_s": 3.660043954849243
+      },
+      "first_cleanup_lossless_pack_s": 36.46942687034607,
+      "replay_cleanup_s": 0.7300083637237549,
+      "total_s": 667.8928203582764
+    },
+    {
+      "name": "pose_01_01_walk",
+      "first": {
+        "prepare_s": 0.21400189399719238,
+        "startup_to_first_decision_s": 19.40522813796997,
+        "execution_between_decisions_s": 278.6052620410919,
+        "final_step_pack_exit_s": 14.668170928955078,
+        "validation_s": 3.6430435180664062
+      },
+      "replay": {
+        "prepare_s": 0.16500210762023926,
+        "startup_to_first_decision_s": 17.548205852508545,
+        "execution_between_decisions_s": 273.476202249527,
+        "final_step_pack_exit_s": 14.701171875,
+        "validation_s": 3.807044744491577
+      },
+      "first_cleanup_lossless_pack_s": 36.482426404953,
+      "replay_cleanup_s": 0.7230086326599121,
+      "total_s": 663.4387683868408
+    },
+    {
+      "name": "pose_03_00_walk",
+      "first": {
+        "prepare_s": 0.1640021800994873,
+        "startup_to_first_decision_s": 19.125223875045776,
+        "execution_between_decisions_s": 282.385306596756,
+        "final_step_pack_exit_s": 14.765172481536865,
+        "validation_s": 3.640043020248413
+      },
+      "replay": {
+        "prepare_s": 0.1640019416809082,
+        "startup_to_first_decision_s": 17.69920802116394,
+        "execution_between_decisions_s": 271.6631808280945,
+        "final_step_pack_exit_s": 14.666171073913574,
+        "validation_s": 3.667043447494507
+      },
+      "first_cleanup_lossless_pack_s": 36.71342897415161,
+      "replay_cleanup_s": 0.733008623123169,
+      "total_s": 665.3857910633087
+    },
+    {
+      "name": "pose_09_00_walk",
+      "first": {
+        "prepare_s": 0.26400303840637207,
+        "startup_to_first_decision_s": 19.723231077194214,
+        "execution_between_decisions_s": 279.76127552986145,
+        "final_step_pack_exit_s": 14.747172355651855,
+        "validation_s": 3.6940436363220215
+      },
+      "replay": {
+        "prepare_s": 0.1640019416809082,
+        "startup_to_first_decision_s": 17.863209009170532,
+        "execution_between_decisions_s": 273.57320404052734,
+        "final_step_pack_exit_s": 14.68917202949524,
+        "validation_s": 3.7530438899993896
+      },
+      "first_cleanup_lossless_pack_s": 36.32542443275452,
+      "replay_cleanup_s": 0.7260086536407471,
+      "total_s": 665.2837896347046
+    },
+    {
+      "name": "pose_08_02_walk",
+      "first": {
+        "prepare_s": 0.21500301361083984,
+        "startup_to_first_decision_s": 19.496227979660034,
+        "execution_between_decisions_s": 283.3533179759979,
+        "final_step_pack_exit_s": 14.676171064376831,
+        "validation_s": 3.6960439682006836
+      },
+      "replay": {
+        "prepare_s": 0.1640019416809082,
+        "startup_to_first_decision_s": 17.56720495223999,
+        "execution_between_decisions_s": 273.0111975669861,
+        "final_step_pack_exit_s": 14.645170450210571,
+        "validation_s": 3.653043746948242
+      },
+      "first_cleanup_lossless_pack_s": 36.65142893791199,
+      "replay_cleanup_s": 0.7350084781646729,
+      "total_s": 667.8638200759888
+    },
+    {
+      "name": "pose_07_02_walk",
+      "first": {
+        "prepare_s": 0.1640019416809082,
+        "startup_to_first_decision_s": 19.539228916168213,
+        "execution_between_decisions_s": 283.7513225078583,
+        "final_step_pack_exit_s": 14.63817048072815,
+        "validation_s": 3.745044708251953
+      },
+      "replay": {
+        "prepare_s": 0.1640019416809082,
+        "startup_to_first_decision_s": 17.60520601272583,
+        "execution_between_decisions_s": 275.8982307910919,
+        "final_step_pack_exit_s": 14.67617130279541,
+        "validation_s": 3.648043155670166
+      },
+      "first_cleanup_lossless_pack_s": 36.52842736244202,
+      "replay_cleanup_s": 0.722008466720581,
+      "total_s": 671.0798575878143
+    },
+    {
+      "name": "pose_07_00_walk",
+      "first": {
+        "prepare_s": 0.2160029411315918,
+        "startup_to_first_decision_s": 19.09622287750244,
+        "execution_between_decisions_s": 282.5643093585968,
+        "final_step_pack_exit_s": 15.215177774429321,
+        "validation_s": 3.6940436363220215
+      },
+      "replay": {
+        "prepare_s": 0.1660020351409912,
+        "startup_to_first_decision_s": 17.82020902633667,
+        "execution_between_decisions_s": 274.1762101650238,
+        "final_step_pack_exit_s": 14.580169916152954,
+        "validation_s": 3.761044979095459
+      },
+      "first_cleanup_lossless_pack_s": 36.45742630958557,
+      "replay_cleanup_s": 0.723008394241333,
+      "total_s": 668.469827413559
+    },
+    {
+      "name": "pose_04_00_walk",
+      "first": {
+        "prepare_s": 0.17000198364257812,
+        "startup_to_first_decision_s": 19.132224082946777,
+        "execution_between_decisions_s": 280.1492805480957,
+        "final_step_pack_exit_s": 14.89717435836792,
+        "validation_s": 4.086047887802124
+      },
+      "replay": {
+        "prepare_s": 0.1640021800994873,
+        "startup_to_first_decision_s": 17.609205961227417,
+        "execution_between_decisions_s": 273.0769064426422,
+        "final_step_pack_exit_s": 14.638832569122314,
+        "validation_s": 3.7100887298583984
+      },
+      "first_cleanup_lossless_pack_s": 36.58142805099487,
+      "replay_cleanup_s": 0.7184438705444336,
+      "total_s": 664.9336366653442
+    },
+    {
+      "name": "pose_06_00_walk",
+      "first": {
+        "prepare_s": 0.2138350009918213,
+        "startup_to_first_decision_s": 19.269963026046753,
+        "execution_between_decisions_s": 293.5605788230896,
+        "final_step_pack_exit_s": 16.150455236434937,
+        "validation_s": 4.4390435218811035
+      },
+      "replay": {
+        "prepare_s": 0.21495604515075684,
+        "startup_to_first_decision_s": 19.858015060424805,
+        "execution_between_decisions_s": 312.89210867881775,
+        "final_step_pack_exit_s": 16.039352416992188,
+        "validation_s": 4.407804727554321
+      },
+      "first_cleanup_lossless_pack_s": 39.62472939491272,
+      "replay_cleanup_s": 0.9229578971862793,
+      "total_s": 727.593799829483
+    },
+    {
+      "name": "pose_02_03_walk",
+      "first": {
+        "prepare_s": 0.21498990058898926,
+        "startup_to_first_decision_s": 22.342889070510864,
+        "execution_between_decisions_s": 320.498726606369,
+        "final_step_pack_exit_s": 16.041548490524292,
+        "validation_s": 4.46159553527832
+      },
+      "replay": {
+        "prepare_s": 0.163985013961792,
+        "startup_to_first_decision_s": 19.930174112319946,
+        "execution_between_decisions_s": 308.81932306289673,
+        "final_step_pack_exit_s": 15.787524938583374,
+        "validation_s": 4.413588762283325
+      },
+      "first_cleanup_lossless_pack_s": 38.764466285705566,
+      "replay_cleanup_s": 0.8819177150726318,
+      "total_s": 752.3207294940948
+    },
+    {
+      "name": "pose_07_01_walk",
+      "first": {
+        "prepare_s": 0.21397995948791504,
+        "startup_to_first_decision_s": 21.420000076293945,
+        "execution_between_decisions_s": 320.7260193824768,
+        "final_step_pack_exit_s": 15.63553762435913,
+        "validation_s": 4.510578632354736
+      },
+      "replay": {
+        "prepare_s": 0.214979887008667,
+        "startup_to_first_decision_s": 19.560171127319336,
+        "execution_between_decisions_s": 311.1858992576599,
+        "final_step_pack_exit_s": 15.632537603378296,
+        "validation_s": 4.455583810806274
+      },
+      "first_cleanup_lossless_pack_s": 38.30741739273071,
+      "replay_cleanup_s": 0.8839173316955566,
+      "total_s": 752.7466220855713
+    },
+    {
+      "name": "pose_09_04_walk",
+      "first": {
+        "prepare_s": 0.2639751434326172,
+        "startup_to_first_decision_s": 22.07693600654602,
+        "execution_between_decisions_s": 315.22252106666565,
+        "final_step_pack_exit_s": 15.631537914276123,
+        "validation_s": 4.3455939292907715
+      },
+      "replay": {
+        "prepare_s": 0.16398382186889648,
+        "startup_to_first_decision_s": 19.89114022254944,
+        "execution_between_decisions_s": 309.31707406044006,
+        "final_step_pack_exit_s": 15.775523900985718,
+        "validation_s": 4.4205873012542725
+      },
+      "first_cleanup_lossless_pack_s": 37.95845007896423,
+      "replay_cleanup_s": 0.8799176216125488,
+      "total_s": 745.9472410678864
+    },
+    {
+      "name": "pose_00_00_walk",
+      "first": {
+        "prepare_s": 0.2639751434326172,
+        "startup_to_first_decision_s": 21.005035877227783,
+        "execution_between_decisions_s": 323.09678506851196,
+        "final_step_pack_exit_s": 16.025501012802124,
+        "validation_s": 4.744556665420532
+      },
+      "replay": {
+        "prepare_s": 0.16898417472839355,
+        "startup_to_first_decision_s": 20.498082876205444,
+        "execution_between_decisions_s": 341.04010701179504,
+        "final_step_pack_exit_s": 16.094494104385376,
+        "validation_s": 4.482581615447998
+      },
+      "first_cleanup_lossless_pack_s": 39.090344190597534,
+      "replay_cleanup_s": 0.8889169692993164,
+      "total_s": 787.3993647098541
+    },
+    {
+      "name": "pose_05_00_walk",
+      "first": {
+        "prepare_s": 0.3149709701538086,
+        "startup_to_first_decision_s": 21.650974988937378,
+        "execution_between_decisions_s": 317.2653305530548,
+        "final_step_pack_exit_s": 16.10049343109131,
+        "validation_s": 4.442585468292236
+      },
+      "replay": {
+        "prepare_s": 0.16398406028747559,
+        "startup_to_first_decision_s": 19.987130880355835,
+        "execution_between_decisions_s": 307.25726675987244,
+        "final_step_pack_exit_s": 16.039499282836914,
+        "validation_s": 4.316596984863281
+      },
+      "first_cleanup_lossless_pack_s": 39.36431860923767,
+      "replay_cleanup_s": 0.9039154052734375,
+      "total_s": 747.8070673942566
+    },
+    {
+      "name": "pose_09_03_walk",
+      "first": {
+        "prepare_s": 0.16498398780822754,
+        "startup_to_first_decision_s": 21.679972887039185,
+        "execution_between_decisions_s": 321.2803945541382,
+        "final_step_pack_exit_s": 16.399720430374146,
+        "validation_s": 4.501375913619995
+      },
+      "replay": {
+        "prepare_s": 0.21396994590759277,
+        "startup_to_first_decision_s": 18.008511066436768,
+        "execution_between_decisions_s": 287.5053029060364,
+        "final_step_pack_exit_s": 14.960933923721313,
+        "validation_s": 3.7134878635406494
+      },
+      "first_cleanup_lossless_pack_s": 39.11258625984192,
+      "replay_cleanup_s": 0.7398977279663086,
+      "total_s": 728.2811374664307
+    },
+    {
+      "name": "pose_05_02_walk",
+      "first": {
+        "prepare_s": 0.16397690773010254,
+        "startup_to_first_decision_s": 19.863258123397827,
+        "execution_between_decisions_s": 292.8095734119415,
+        "final_step_pack_exit_s": 14.80495548248291,
+        "validation_s": 4.603364944458008
+      },
+      "replay": {
+        "prepare_s": 0.21397089958190918,
+        "startup_to_first_decision_s": 18.478448152542114,
+        "execution_between_decisions_s": 287.33832907676697,
+        "final_step_pack_exit_s": 14.957934856414795,
+        "validation_s": 3.701488971710205
+      },
+      "first_cleanup_lossless_pack_s": 36.933900117874146,
+      "replay_cleanup_s": 0.7398979663848877,
+      "total_s": 694.6090989112854
+    },
+    {
+      "name": "pose_04_03_walk",
+      "first": {
+        "prepare_s": 0.21396994590759277,
+        "startup_to_first_decision_s": 20.317194938659668,
+        "execution_between_decisions_s": 333.71792554855347,
+        "final_step_pack_exit_s": 15.90080451965332,
+        "validation_s": 4.381395101547241
+      },
+      "replay": {
+        "prepare_s": 0.16497802734375,
+        "startup_to_first_decision_s": 17.997514963150024,
+        "execution_between_decisions_s": 285.4875843524933,
+        "final_step_pack_exit_s": 14.642977714538574,
+        "validation_s": 3.6554958820343018
+      },
+      "first_cleanup_lossless_pack_s": 37.30284881591797,
+      "replay_cleanup_s": 0.7338986396789551,
+      "total_s": 734.5165884494781
+    }
+  ],
+  "mean_s": {
+    "first_prepare_s": 0.2416546392440796,
+    "first_startup_to_first_decision_s": 20.955002846717836,
+    "first_execution_between_decisions_s": 360.043355050087,
+    "first_final_step_pack_exit_s": 15.154452509880066,
+    "first_validation_s": 3.9251129102706908,
+    "replay_prepare_s": 0.17407723426818847,
+    "replay_startup_to_first_decision_s": 18.542109770774843,
+    "replay_execution_between_decisions_s": 316.80121517181396,
+    "replay_final_step_pack_exit_s": 15.016356019973754,
+    "replay_validation_s": 3.929513292312622,
+    "first_cleanup_lossless_pack_s": 37.29835890293121,
+    "replay_cleanup_s": 0.811738886833191,
+    "total_s": 792.8929472351074
+  },
+  "median_total_s": 700.9660032987595,
+  "method": "Approximate elapsed wall time from log birth times, decision file timestamps and validation outputs. Execution includes physics, inference, render/capture, checkpoints and temporary compression. Final step/pack/exit is a combined bucket; no GPU-only attribution."
+}

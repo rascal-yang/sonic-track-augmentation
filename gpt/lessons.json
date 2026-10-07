@@ -1,0 +1,383 @@
+[
+  {
+    "id": "L001",
+    "status": "observed",
+    "lesson": "A single video contact point does not specify a full opposing grasp.",
+    "evidence": [
+      "video_contact"
+    ],
+    "scope": "human-to-Revo rigid box transfer"
+  },
+  {
+    "id": "L002",
+    "status": "observed",
+    "lesson": "Global force freeze can prevent uncontacted fingers from closing; independent control alone did not solve this grasp.",
+    "evidence": [
+      "independent_fingers"
+    ],
+    "scope": "legacy total-force-limited finger controller"
+  },
+  {
+    "id": "L003",
+    "status": "observed",
+    "lesson": "Evaluate achieved IK displacement and residual, not requested displacement; bounded wrist correction moved thumb proxy only about 1.65 mm.",
+    "evidence": [
+      "bounded_wrist"
+    ],
+    "scope": "near-extended G1 arm at this contact pose"
+  },
+  {
+    "id": "L004",
+    "status": "observed",
+    "lesson": "Unlatched closure can curl contacted fingers off the box; latching preserves contact but still did not produce opposed thumb contact.",
+    "evidence": [
+      "independent_fingers",
+      "bounded_wrist"
+    ],
+    "scope": "current top-contact strategy"
+  },
+  {
+    "id": "L005",
+    "status": "observed",
+    "lesson": "Early thumb preshaping with opposition1.0/closure0.8 did not establish thumb contact in the current fixed-body box scene; timing alone was insufficient for this attempt.",
+    "evidence": [
+      "human_prior_trial001_thumb_first"
+    ],
+    "scope": "this current box and fixed original body poses"
+  },
+  {
+    "id": "L006",
+    "status": "observed",
+    "lesson": "In the side-approach reference-only trial the palm remained about 5 cm above its planned position and waist pitch did not track the reference; 6 mm ideal FK residual did not predict actual contact.",
+    "evidence": [
+      "20260925_human_prior_grasp__trial002_side_approach",
+      "experiments/20260925_human_prior_grasp/reports/side_tracking_diagnostic.json"
+    ],
+    "scope": "this SONIC checkpoint and local right-arm/waist reference"
+  },
+  {
+    "id": "L007",
+    "status": "observed",
+    "lesson": "A double-added correction at a trajectory splice produced an unexecuted 1.477 rad planned deviation; audit the complete compiled reference and distinguish executed prefix. This splice was not reached during the failed grasp.",
+    "evidence": [
+      "20260925_human_prior_grasp__trial002_side_approach"
+    ],
+    "scope": "prepare_side_approach.py before the splice fix"
+  },
+  {
+    "id": "L008",
+    "status": "observed",
+    "lesson": "Local right-arm/waist actuator targets did not solve world-space reach: during this attempt root horizontal motion was 0.3244 m and waist actual0.520rad differed from target0.231rad. Check support and actual world-space feedback before closing.",
+    "evidence": [
+      "20260925_human_prior_grasp__trial003_local_servo",
+      "experiments/20260925_human_prior_grasp/reports/execution_audit.json"
+    ],
+    "scope": "current SONIC checkpoint and rate-limited eight-joint override; mechanism not isolated"
+  },
+  {
+    "id": "L009",
+    "status": "observed",
+    "lesson": "A desired physical joint angle is not generally an equilibrium actuator target: the SONIC waist target minus actual pose was about -0.40rad, consistent with a simplified gravity estimate about -0.43rad. The compensated trial reached waist0.195rad toward0.231rad without the previous0.52rad saturation, but still failed before grasp.",
+    "evidence": [
+      "experiments/20260925_grasp_support_feedback/reports/waist_bias_diagnostic.json",
+      "20260925_grasp_support_feedback__trial002_gravity_feedback"
+    ],
+    "scope": "current implicit waist actuator stiffness28.5Nm/rad and robot posture; gravity model omits Revo hands; multiple controller changes prevent isolated causal attribution"
+  },
+  {
+    "id": "L010",
+    "status": "observed",
+    "lesson": "Fixed-time target progression outran rate-limited joints: elbow target limiter was active about95% of recorded local substeps in the compensated trial; final palm error8cm and root drift12cm stopped the attempt before closure.",
+    "evidence": [
+      "20260925_grasp_support_feedback__trial002_gravity_feedback"
+    ],
+    "scope": "this transition and0.8rad/s actuator-target cap; event-based progress is a hypothesis for the next attempt"
+  },
+  {
+    "id": "L011",
+    "status": "observed",
+    "lesson": "Event-based progress reduced the final palm error from8cm to3.4cm in these trials but still hit the12cm root-drift stop before pregrasp. Foot horizontal displacement was below1cm while pelvis moved about11cm; root drift does not by itself prove foot slip or falling.",
+    "evidence": [
+      "20260925_grasp_support_feedback__trial003_event_feedback",
+      "experiments/20260925_grasp_support_feedback/reports/support_motion_diagnostic.json"
+    ],
+    "scope": "this robot/controller/box approach; no successful grasp"
+  },
+  {
+    "id": "L012",
+    "status": "observed",
+    "lesson": "After a reference handoff, an old trajectory start can become unreachable and stall a pose gate. Reanchoring withdrawal to the measured hand pose advanced the phase from175 to247, but still failed on root drift; it did not establish full pregrasp feasibility.",
+    "evidence": [
+      "20260925_grasp_support_feedback__trial004_support_reference",
+      "20260925_grasp_support_feedback__trial005_support_reanchored"
+    ],
+    "scope": "local measured-stance handoff; final object target unchanged"
+  },
+  {
+    "id": "L013",
+    "status": "observed",
+    "lesson": "Coupled feet/COM/palm geometric IK achieved very small numerical residuals but physical tracking failed with11.4cm palm error before pregrasp. Collision sweeps, support forces, torque limits and controller compatibility need independent verification.",
+    "evidence": [
+      "experiments/20260925_grasp_support_feedback/reports/wholebody_feasibility.json",
+      "20260925_grasp_support_feedback__trial006_coupled_wholebody"
+    ],
+    "scope": "simplified base-robot inertia model, attached-hand masses omitted, current SONIC plus local targets"
+  },
+  {
+    "id": "L014",
+    "status": "observed",
+    "lesson": "The box toppled in gravity-feedback and coupled-wholebody trials while the grasp goal remained based on its original pose. A contact-induced object pose change invalidates a static contact plan even if arm IK still converges.",
+    "evidence": [
+      "experiments/20260925_grasp_support_feedback/reports/object_motion_audit.json"
+    ],
+    "scope": "these two failed runs; online object-relative replanning was not implemented"
+  },
+  {
+    "id": "L015",
+    "status": "observed",
+    "lesson": "In a 3cm G1 noncontact reach, position-only success concealed 31–57 degree wrist rotation. Penalizing incremental orientation is insufficient for an anchored grasp pose; an absolute target and revised weights reduced rotation below 3.5 degrees but introduced position error.",
+    "evidence": [
+      "20260925_mpc_pregrasp__trial002_mpc",
+      "20260925_mpc_pregrasp__trial003_horizon1",
+      "20260925_mpc_pregrasp__trial004_pose_anchor"
+    ],
+    "scope": "current G1+Revo2, fixed-base arm predictor and SONIC residual target interface"
+  },
+  {
+    "id": "L016",
+    "status": "observed",
+    "lesson": "With the first cost function, one-step prediction outperformed 12-step prediction in positional error; this is not a general horizon conclusion. Whole-body/SONIC future response is missing, inputs frequently saturate, and each corrected objective needs its own matched comparison.",
+    "evidence": [
+      "20260925_mpc_pregrasp__trial002_mpc",
+      "20260925_mpc_pregrasp__trial003_horizon1"
+    ],
+    "scope": "seed17 3cm vertical noncontact task; no grasp or multi-seed validation"
+  },
+  {
+    "id": "L017",
+    "status": "observed",
+    "lesson": "After anchoring absolute wrist orientation, 12-step MPC narrowly passed a 1cm/0.15rad hold gate for1.94s, final position error9.85mm. One-step variant remained above1cm. Saturation92.5% and tiny positional margin require policy/reference compatibility work and perturbation validation before contact.",
+    "evidence": [
+      "20260925_mpc_pregrasp__trial004_pose_anchor",
+      "20260925_mpc_pregrasp__trial005_pose_horizon12"
+    ],
+    "scope": "single seed17 noncontact3cm vertical goal; does not establish grasp success or robustness"
+  },
+  {
+    "id": "L018",
+    "status": "observed",
+    "lesson": "Restoring the box removed the +1.5m empty-scene diagnostic displacement and produced actual finger contact at2.66s. With the same scene and approach prefix, box-surface MPC pushed the box31.52mm and stopped at5.88s; thumb contact stayed zero. Single-pad position accuracy and empty-scene tracking are insufficient evidence of manipulation.",
+    "evidence": [
+      "20260925_mpc_box_in_scene__trial001_box_restored",
+      "20260925_mpc_box_in_scene__trial002_box_surface_mpc"
+    ],
+    "scope": "current light box, top-side hand approach, open Revo2 and fixed-base arm predictor; no successful grasp"
+  },
+  {
+    "id": "measured_130cm_g1_preclose_velocity_20260925",
+    "status": "observed_failure_not_validated_fix",
+    "lesson": "In the calibrated23cm bottle/1.30m G1 scene, preserving measured support kept feet within0.027mm during handoff, but actual hand position error2.89cm still coincided with palm speed0.139m/s. Closing at this moving state tipped the bottle. The new stability gate rejected the same state, but its physical continuation was interrupted; do not promote it as a successful grasp correction.",
+    "evidence": [
+      "20260925_measured_walk_grasp_walk004",
+      "20260925_measured_walk_grasp_walk005"
+    ],
+    "scope": "scaled post-walk SONIC balance with actual-state right arm IK",
+    "detailed_reflection": "../../experiments/20260925_measured_walk_grasp/FAILURE_ANALYSIS.md",
+    "followup": "measured_130cm_g1_success_arc_20260925"
+  },
+  {
+    "id": "measured_130cm_g1_success_arc_20260925",
+    "status": "observed_success_in_this_scene",
+    "lesson": "Palm target 1cm inward alone did not solve reach. Closer stance plus measured support handoff with no extra waist lean and actual preclose stability gate enabled success. Replacing two approach goals with one continuous arc also succeeded, but increased duration1.70s and actual palm path0.23m.",
+    "scope": "112x60x75cm desk,23cm bottle,130cm G1, current SONIC/Revo2; no perturbation success-rate claim",
+    "evidence": [
+      "experiments/20260925_measured_walk_grasp/runs/walk_009/summary.json",
+      "experiments/20260925_measured_walk_grasp/runs/walk_010_arc/summary.json",
+      "experiments/20260925_measured_walk_grasp/RESULTS.md"
+    ]
+  },
+  {
+    "id": "LM20260925_PANDA_BOX",
+    "status": "replicated",
+    "scope": "fixed dual Panda, same BEHAVE box, current office layout and PD settings only",
+    "lesson": "A shared object-frame hand pair plus measured settling/grasp reanchoring and bounded dwell produced 3/3 final perturbed physical successes; no-grip negative failed. Changes were combined; individual causality unproven. Not G1/Revo validation.",
+    "evidence": [
+      "experiments/20260925_locomanip_baseline/delivery_metrics.json",
+      "experiments/20260925_locomanip_baseline/negative_limits_metrics.json",
+      "policy_memory/grasp_learning/reflections/20260925_locomanip_baseline.md"
+    ]
+  },
+  {
+    "id": "LM20260925_G1_BASKET_HANDLE",
+    "status": "replicated",
+    "scope": "same rigid empty office basket, fixed stance floating-base G1/Revo2, current SONIC balance + bounded actual-arm IK; objectXY±12/8mm,yaw±0.06rad,liftgoal110..130mm only",
+    "lesson": "Near ascending handle wrap produced1seed+3/3 independent augmented physical holds5.26..5.40s with whole collider clearance49..61mm and no monitored hand/forearm obstacle contacts. Source subtree requires explicit external visual/physics material bindings. Full target pose and measured settling before closure retained. No bilateral manipulation, placement or carrying-walk conclusion.",
+    "limitations": [
+      "No human video; task manually authored",
+      "Absolute contact-force calibration unresolved: static sensor about3x mg",
+      "Native-rate temporal visual acceptance incomplete"
+    ],
+    "evidence": [
+      "experiments/20260925_g1_basket/REPORT.md",
+      "experiments/20260925_g1_basket/batches/batch_001/summary.json",
+      "experiments/20260925_g1_basket/reports/contact_force_caveat.json"
+    ]
+  },
+  {
+    "id": "LM20260926_G1_BASKET_PLACE",
+    "status": "replicated",
+    "scope": "Same empty rigid office basket, fixed standing floating-base G1/Revo2 right hand; small initial XY/yaw and independent goal XY perturbations only",
+    "lesson": "Full pick-transfer-place-release succeeded once as seed and in2/2 perturbed rollouts after conservative transfer and sustained support-before-opening with bounded3mm seating. Earlier distant transfer lost grasp; transient support stopped before opening. Final XY16.0–22.0mm under25mm threshold, upright but yaw unconstrained. Seed-derived release compensation not proven to improve accuracy. No isolated causal ablation.",
+    "limitations": [
+      "No human video or bimanual task",
+      "No loaded locomotion or C validation",
+      "Contact force absolute calibration unresolved",
+      "Native-rate temporal visual acceptance incomplete"
+    ],
+    "evidence": [
+      "experiments/20260926_g1_basket_place/REPORT.md",
+      "experiments/20260926_g1_basket_place/batches/batch_001/summary.json",
+      "experiments/20260926_g1_basket_place/runs/seed_001/audit.json",
+      "experiments/20260926_g1_basket_place/runs/seed_002/audit.json"
+    ]
+  },
+  {
+    "id": "LM20260929_SONIC_25MM_SIMPLIFY",
+    "status": "observed",
+    "scope": "Same calibrated G1/Revo2 bottle scene,source830 initialization,release encoder/decoder,25mm reference only",
+    "lesson": "Retained successful25mm seven-posture token rollouts: fast11.72s holds4.68s; conservative15.42s holds4.58s. Both show0 monitored hand/forearm-table contact. Full motion smoothing is not established; reference smoothness does not guarantee actual decoder smoothness. No perturbation robustness or hardware claim.",
+    "evidence": [
+      "experiments/20260929_sonic_grasp_smooth/RESULTS.md"
+    ]
+  },
+  {
+    "id": "LM20260929_SONIC_WALK_FAST_DOCK",
+    "status": "observed",
+    "scope": "Measured G1/Revo2 bottle scene,release SONIC encoder/decoder,seed17,calibrated rearward start",
+    "lesson": "Online V2 planner references with0.55m/s cruise and live orientation anchor survived release encoder/decoder, actual walk~0.82m. Fixed braking distance alone was phase-sensitive and near-table reverse correction collided. Calibrating starting robot and planner goal from clean-stop foot placement enabled unchanged fast grasp tokens after measured handoff:21.42s,4.72s final strict hold,0 monitored table contact. Single calibrated success, not perturbation robustness or offline actual-motion reencoding replay.",
+    "evidence": [
+      "experiments/20260929_sonic_walk_fast_grasp/RESULTS.md",
+      "experiments/20260929_sonic_walk_fast_grasp/runs/walk_fast_007/audit.json"
+    ]
+  },
+  {
+    "id": "LM20260929_SONIC_INDEPENDENT_REPLAY",
+    "status": "observed",
+    "scope": "Matched initialization, measured G1/Revo2 scene and release SONIC models; one pair of tests",
+    "lesson": "Original executed latent stream independently reproduces all 1071 source root/joint states and PD targets exactly in this matched simulation. Offline reencoding of actual measured motion failed the docking gate. Use original executed tokens as verified labels; separate hand targets. Not a robustness claim.",
+    "evidence": [
+      "experiments/20260929_sonic_walk_independent_replay/RESULTS.md",
+      "experiments/20260929_sonic_walk_independent_replay/runs/recorded_001/audit.json"
+    ]
+  },
+  {
+    "id": "LM20260929_SONIC_AUTOMATIC_AUGMENTATION",
+    "status": "observed",
+    "scope": "Measured G1/Revo2 bottle scene; 3 selected physical tests, not a distribution success rate",
+    "lesson": "Fully automatic numeric supervision collected one successful small-XY-start augmentation (4.68s strict hold). A combined SE2/path/time candidate with random planner seed collided during stance handoff; reducing handoff root gate8.5cm to5cm rejects that recorded state. Same candidate with planner seed17 passed handoff but tipped bottle during approach, with5.68cm final wrist-reference discrepancy. Root-only arrival does not certify hand-object alignment. Default remains small-start perturbation with exact grasp tokens; broad adaptation is experimental.",
+    "evidence": [
+      "experiments/20260929_sonic_mimicgen_augmentation/RESULTS.md",
+      "experiments/20260929_sonic_mimicgen_augmentation/transformed_fixed_seed_runs/candidate_000300/contact_failure_diagnosis.json"
+    ]
+  },
+  {
+    "id": "LM20260930_SONIC_TELEOP_GRASP",
+    "status": "observed",
+    "scope": "Same measured G1/Revo2 bottle, matched source830 initialization; one grasp-only test",
+    "lesson": "Source safe025 Cartesian VR3 references with standing leg reference through release mode1 encoder/live root orientation and decoder complete clean grasp without new upper-body IK. Use official left/right/torso offsets, reference-root frame and undo uniform scene scaling. 4.42s strict hold,12.85cm clearance,0 table contact. Successful task despite 23.3deg final reference wrist orientation error; smoothness lower than prior G1 mode0. Does not validate arbitrary Cartesian targets, walking transition or robustness.",
+    "evidence": [
+      "experiments/20260929_sonic_teleop_grasp/RESULTS.md",
+      "experiments/20260929_sonic_teleop_grasp/runs/teleop_001/token_summary.json"
+    ]
+  },
+  {
+    "id": "LM20260930_G1_TELEOP_FIXED_TOKEN_REPLAY",
+    "status": "observed",
+    "scope": "One matched-init independent fixed-token replay each of G1 and teleop successful stationary grasp, same workstation/simulator",
+    "lesson": "Both actual executed64D streams independently reproduce their first recorded grasp in matched simulation; compare replay_comparison.json for exact errors. Replay feeds live proprioception to decoder and original independent hand targets; no encoder/planner/IK. Use actual teleop online tokens rather than offline nominal preview. This preserves initial waypoint biases and does not establish hardware or perturbation robustness.",
+    "evidence": [
+      "/home/kinetra-4090-01/code/zijian/experiments/20260930_sonic_grasp_token_replay/RESULTS.md"
+    ]
+  },
+  {
+    "id": "teleop_object_relative_augmentation_20260930",
+    "status": "replicated_in_small_stationary_smoke",
+    "lesson": "Blend object-relative wrist translation/rotation into safe025, scale only free-space approach with unchanged contact endpoint; live mode1 SONIC achieved stable lift for three distinct small object positions without arm IK.",
+    "evidence": [
+      "experiments/20260930_teleop_aug50/stationary/success_index.json"
+    ],
+    "scope": "Same23cm bottle/112x60x75cm desk/130cm G1 and Revo2;3 tested grid poses, not yet full50 or mobile success. Visual temporal acceptance remains pending."
+  },
+  {
+    "id": "LM20261001_TWO_KEYFRAME_G1_DEX3",
+    "status": "observed_failure",
+    "scope": "two source frames, horizontal alcohol_0, native G1 Dex3 and pnp_table_release, one geometry and two timings",
+    "lesson": "Known camera/assets plus sparse object fitting and IK produced a geometric reference without dense human reconstruction. Native policy failed preclose arrival at 8.53cm/61.87deg; 2x slower plus 2s dwell remained 8.30cm/61.80deg. Wrist pitch reference1.210rad vs drive target0.047rad suggests checking reference-to-policy compatibility before more timing-only trials. No grasp occurred; root cause not isolated.",
+    "evidence": [
+      "/home/kinetra-4090-01/code/zijian/experiments/20261001_two_keyframe_scene/physics03/final/analysis.json",
+      "/home/kinetra-4090-01/code/zijian/experiments/20261001_two_keyframe_scene/physics04/final/analysis.json",
+      "/home/kinetra-4090-01/code/zijian/experiments/20261001_two_keyframe_scene/RESULTS.txt"
+    ]
+  },
+  {
+    "id": "LM20261001_SPIDER_HOT3D",
+    "status": "observed_partial_interaction_not_full_success",
+    "scope": "one processed HOT3D clip, floating Xhand, native Warp3.7.0.1,3optimizer settings",
+    "lesson": "Direct IK controls do not lift. Default SPIDER achieves1.48s continuous hand-supported airborne; full32iterations1.59s but fails late tracking/official rotation gate. Weaker original-style parameter group worsens performance. Same-backend independent control replays of newly optimized streams agree within1.4-5.1mm; published old controls do not match archived states under current setup. Separate frontend reconstruction, physical optimization, saved-state display and control replay. No G1 or true bilateral cooperation verified.",
+    "evidence": [
+      "/home/kinetra-4090-01/code/zijian/experiments/20261001_spider_hot3d/RESULTS.txt",
+      "/home/kinetra-4090-01/code/zijian/experiments/20261001_spider_hot3d/comparison.json"
+    ]
+  },
+  {
+    "id": "LM20261001_SPIDER_G1_SONIC",
+    "status": "observed_interface_connected_grasp_failed",
+    "scope": "single HOT3D object with experimental G1/XHand mounts,release SONIC,MuJoCo CPU2ms",
+    "lesson": "Match G1 training rotor inertias before interpreting MuJoCo failures: absent inertias caused1.36s fall; corrected4s standing drift2.04mm. Three adapted interaction rollouts completed with zero monitored table contact but no lift. Bounded Cartesian encoder-input correction improves contact-window wrist error40.9->12.2mm and8.19->4.12deg, adds thumb contact, still no sustained grasp. Floating-hand controls need contact/closure retiming reoptimization on integrated G1 dynamics.",
+    "evidence": "/home/kinetra-4090-01/code/zijian/experiments/20261001_spider_g1_sonic/RESULTS.txt"
+  },
+  {
+    "id": "LM20261002_G1_CONTACT_REFINEMENT",
+    "status": "observed_failed_contact_refinement",
+    "scope": "HOT3D96945373046044,G1/XHand,SONICmode1,MuJoCo2ms",
+    "lesson": "Four-times-slowed reference exposes0.4s transient opposed contact. Continuing fingers, holding measured pose, and bounded thumb/middle contact feedback all fail stationary grasp gate. Last variant increases table load14.44N without lift and saturates0.25rad correction; position tracking alone is not the remaining issue. Need changed contact regions/directions, not more blind closure.",
+    "evidence": "/home/kinetra-4090-01/code/zijian/experiments/20261002_g1_contact_refinement/RESULTS.txt"
+  },
+  {
+    "id": "LM20261002_GPT6_DIALOGUE",
+    "status": "observed_failed_refinement",
+    "scope": "same HOT3D object96945373046044,G1/XHand,SONICmode1,MuJoCo2ms",
+    "lesson": "Two GPT6 API roles proposed/reviewed and revised after physical feedback. Height reference-2mm yielded only0.5-1mm actual coupled shift and failed isolation. One-time damping-equivalent5finger target reduced opposition0.28->0.20s. All3 trials stopped before lift. Thumbcondim4 permits torsional friction; actual coupled elliptic contact wrench constraints verified feasible (conservative L1 inner LP infeasible), so no global geometry-impossibility claim. Need contact persistence and actuator feasibility evidence.",
+    "evidence": "/home/kinetra-4090-01/code/zijian/experiments/20261002_gpt6_grasp_dialogue/RESULTS.txt"
+  },
+  {
+    "id": "LM20261002_G1_LOWER_GRASP",
+    "status": "observed_partial_lift_not_stable",
+    "scope": "HOT3D96945373046044,experimentalG1/XHand,SONICmode1,MuJoCo2ms",
+    "lesson": "Earlier4/8/12mm lower wrist targets plus prompt trial lift lower thumb but middle remains upper edge~20mm.8mm lower+4deg planned pivot tilt relocates middle contact~8mm and adds index: true17.24mm lift,.504s unloaded>5mm. Bounded actual-normal finger force feedback gives17.41mm,.508s, but extending observation and slowing lift still slip. Post-test physical stable interval<=.36s, below.5s even without wrist-error gate. Need contact/slip/body-response stabilization; partial lift does not validate full sequence or hardware.",
+    "evidence": "/home/kinetra-4090-01/code/zijian/experiments/20261002_g1_lower_grasp/RESULTS.txt"
+  },
+  {
+    "id": "LM20261002_G1_OBSERVATION_FIRST",
+    "status": "observed_failed_acquisition",
+    "scope": "HOT3D96945373046044,G1+XHand experimental mount,SONIC,MuJoCo2ms",
+    "lesson": "Three digits carry original object; ring/pinky inactive in task phase and cannot reach through current fixed-wrist digit search. Four-digit static fit did not realize runtime contacts. Open-hand diagnostic also touches thumb early: at same saved state desired-wrist geometry gives3.07mm clearance vs actual penetration0.078mm, finger-command substitution negligible. Need full approach clearance against observed tracking envelope and actual arrival before contact-sequence planning. Contact count is not area; no sole-cause or success claim. API SMALL-change restriction removed in v7.",
+    "evidence": "/home/kinetra-4090-01/code/zijian/experiments/20261002_g1_observation_first/RESULTS.txt"
+  },
+  {
+    "id": "L20261002_REVO2_FINITE_WAYPOINTS",
+    "status": "observed",
+    "lesson": "A precompiled native Revo2 tripod candidate with bounded physical-feedback vertical reference selection produced a10cm bottle lift and1s hold;3/3 fresh-state reruns independently passed. The preceding16.2s states and commands match the earlier validated prefix exactly. Reuse that prefix rather than regenerate it; target-reference displacement is not achieved object displacement.",
+    "evidence": [
+      "experiments/20261002_revo2_candidate_waypoints/runs/attempt_021/independent_audit.json",
+      "experiments/20261002_revo2_candidate_waypoints/independent_audit.json",
+      "experiments/20261002_revo2_candidate_waypoints/strategy_v3_full_prefix_comparison.json"
+    ],
+    "scope": "Exact seed17, standing G1/Revo2,0.25kg rigid bottle, Isaac5.1, existing SONIC plus ik_upper_gc; no perturbed-state or other-task generalization demonstrated",
+    "limitations": [
+      "Fixed initial-state reproduction, not robustness certification",
+      "Does not demonstrate matched-condition speedup over GPT exploration",
+      "User20-budget accounting:20 non-preflight attempts including repeats;4 additional preflight-finalization launches logged separately"
+    ]
+  }
+]

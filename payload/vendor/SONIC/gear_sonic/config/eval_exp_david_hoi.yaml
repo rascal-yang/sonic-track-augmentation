@@ -1,0 +1,51 @@
+# @package _global_
+#
+# Diverse-40 interleaved eval for HOI training.
+# 1 GPU, 160 envs, 80 motions interleaved across object classes.
+# Renders 80 videos covering all ~40 object classes (2 motions/class).
+# Deterministic: same 80 motions selected every eval run via load_unique_motions.
+# Use with: -ec eval_exp_david_hoi_div40 --eval_gpus 1
+#
+# Key differences from eval_exp_david_hoi.yaml:
+#   - num_render_videos: 80 (diverse coverage)
+#   - max_unique_motions: 80 (2 per object class across ~40 classes)
+#   - interleave_by_object: true (round-robin by object class)
+#   - load_unique_motions: true (deterministic, same set every run)
+
+experiment_dir: ???
+max_train_steps: 1000000
+num_eval_envs: 160
+num_render_videos: 32
+
+scan_interval: 0
+checkpoint_ready_delay: 60
+
+eval_frequency: null
+eval_last_n: null
+eval_callbacks: im_eval
+eval_datasets: null
+eval_modes: [null]
+num_test_render_videos: 32
+
+single_pass: false
+
+# Eval-specific overrides (zeroed randomization + motion limit).
+# Data paths, SONIC checkpoint, table_size, etc. come from training config.yaml.
+# Uses dot notation for velocity_range to avoid Hydra brace-expansion issues.
+extra_overrides:
+  - "++manager_env.commands.motion.velocity_range.x=[0,0]"
+  - "++manager_env.commands.motion.velocity_range.y=[0,0]"
+  - "++manager_env.commands.motion.velocity_range.z=[0,0]"
+  - "++manager_env.commands.motion.velocity_range.roll=[0,0]"
+  - "++manager_env.commands.motion.velocity_range.pitch=[0,0]"
+  - "++manager_env.commands.motion.velocity_range.yaw=[0,0]"
+  - "++manager_env.commands.motion.joint_velocity_range=[0,0]"
+  - "++manager_env.commands.motion.motion_lib_cfg.max_unique_motions=80"
+  - "++manager_env.commands.motion.motion_lib_cfg.interleave_by_object=true"
+  - "++manager_env.commands.motion.motion_lib_cfg.load_unique_motions=true"
+  - "++manager_env.commands.motion.motion_lib_cfg.motion_shard_world_size=1"
+  - "++manager_env.commands.motion.motion_lib_cfg.motion_shard_rank=0"
+
+capture_output: false
+render_timeout: 10800  # 3 hours — HOI render with 80 objects needs >1h for Isaac Sim init
+render_sort_by: obj_pos_error  # sort render video selection by obj_pos_error (options: mpjpe_l, obj_pos_error)

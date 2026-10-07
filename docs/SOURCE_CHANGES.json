@@ -1,0 +1,40 @@
+{
+  "counts": {
+    "identical": 2373,
+    "path_templates_only": 23,
+    "other_changes": 3
+  },
+  "other_changes": [
+    {
+      "path": "payload/workspace/pipelines/sonic_teleop_augmentation/check_export.py",
+      "source": "/home/kinetra-4090-01/code/zijian/pipelines/sonic_teleop_augmentation/check_export.py",
+      "source_sha256": "d67ab9a69fce370b35fe83ee74b1220ff476a8131b48cbef94b2ae866d61413d",
+      "repository_sha256": "495c000557a879ccd831fdf24b0458ddea280474f34b0c9a3fceedebbb7e80b3"
+    },
+    {
+      "path": "payload/workspace/pipelines/sonic_teleop_augmentation/common.py",
+      "source": "/home/kinetra-4090-01/code/zijian/pipelines/sonic_teleop_augmentation/common.py",
+      "source_sha256": "e4055d1286242218959b15d9b091fa179061d64c87e55b9f87d7616cbfca31f9",
+      "repository_sha256": "39ba0ba3d15fe0255b5123b02c43c7ce85acf8b847d6ec7e91c829d0785bd06d"
+    },
+    {
+      "path": "payload/workspace/experiments/20260929_sonic_teleop_grasp/prepare.py",
+      "source": "/home/kinetra-4090-01/code/zijian/experiments/20260929_sonic_teleop_grasp/prepare.py",
+      "source_sha256": "8580cbc06cda709f82509309e41c0a6a7a12102ef3cc12e6b1477dbd28a15d69",
+      "repository_sha256": "0656ce8b547ddc278d93c18c9b398bf9e9350d15cb037116377ed47599d48def"
+    }
+  ],
+  "added_entrypoints": [
+    "launch.py",
+    "prepare_batch.py",
+    "setup_environment.sh",
+    "pack.py"
+  ],
+  "original_workspace_modified": false,
+  "physics_or_controller_parameters_changed": false,
+  "notes": [
+    "Most source is byte-identical or only __RUNTIME__ path substitutions.",
+    "Base runtime inherits previously validated portable mobile60 scene changes; no new scene/controller changes.",
+    "Three extra adapters: configurable grasp seed, explicit reference output, and explicit GR00T path."
+  ]
+}

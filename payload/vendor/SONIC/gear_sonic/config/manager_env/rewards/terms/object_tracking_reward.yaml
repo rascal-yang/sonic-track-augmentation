@@ -1,0 +1,17 @@
+object_tracking_reward:
+  _target_: isaaclab.managers.RewardTermCfg
+  func: gear_sonic.envs.manager_env.mdp:object_tracking_reward
+  weight: 1.0
+  params:
+    command_name: "motion"
+    sensor_cfg:
+      _target_: isaaclab.managers.SceneEntityCfg
+      name: "object_to_hand_contact_sensor"  # Finger-object contact sensor
+    w_op: 0.5      # object position weight
+    w_or: 0.0      # object rotation weight
+    w_ov: 0.0      # object linear velocity weight
+    w_oav: 0.0      # object angular velocity weight
+    pos_exp_coeff: -100.0
+    ori_exp_coeff: -100.0
+    vel_exp_coeff: -5.0
+    ang_vel_exp_coeff: -5.0

@@ -1,0 +1,88 @@
+{
+  "reference_population": 50,
+  "timing_scope": "New capture lifetime versus old execution-between-decisions median: approximate execution comparison, excludes complete startup/shutdown/export. One new matched pair, not 50-trial speed measurement.",
+  "old_first_loop_median_s": 293.9941598176956,
+  "old_replay_loop_median_s": 285.8001663684845,
+  "new_first_capture_s": 211.45175013098924,
+  "new_replay_capture_s": 163.76792194000154,
+  "new_pair_success": true,
+  "first": {
+    "task_success": true,
+    "complete_sequence": true,
+    "control_steps": 1071,
+    "duration_s": 21.42,
+    "strict_final_hold_s": 4.4,
+    "final_clearance_m": 0.12578475631321695,
+    "final3s_opposed_fraction": 1.0,
+    "final3s_slip_m": 0.0005243464899994202,
+    "final3s_rotation_deg": 0.24001963770287588,
+    "minimum_pelvis_z_m": 0.753367006778717,
+    "monitored_table_force_peak_N": 0.0,
+    "contact_samples": 4284,
+    "stop_reason": null,
+    "profile": "generate",
+    "elapsed_capture_s": 211.45175013098924,
+    "training_ready": false,
+    "visual_review": "pending",
+    "validation_scope": "Terminal 3s grasp and aggregate online guards; no full trajectory equivalence check"
+  },
+  "replay": {
+    "task_success": true,
+    "complete_sequence": true,
+    "control_steps": 1071,
+    "duration_s": 21.42,
+    "strict_final_hold_s": 4.4,
+    "final_clearance_m": 0.12578475631321695,
+    "final3s_opposed_fraction": 1.0,
+    "final3s_slip_m": 0.0005243464899994202,
+    "final3s_rotation_deg": 0.24001963770287588,
+    "minimum_pelvis_z_m": 0.753367006778717,
+    "monitored_table_force_peak_N": 0.0,
+    "contact_samples": 4284,
+    "stop_reason": null,
+    "profile": "replay",
+    "elapsed_capture_s": 163.76792194000154,
+    "training_ready": false,
+    "visual_review": "no_video_by_design",
+    "validation_scope": "Terminal 3s grasp and aggregate online guards; no full trajectory equivalence check"
+  },
+  "old_token_camera_free_replay_success": true,
+  "terminal_tests_passed": true,
+  "old_data_modified": false,
+  "trajectory_equivalence_claimed": false,
+  "production_replay_capture_absent": [
+    "video",
+    "raw hdf5",
+    "decoder tensor chunks",
+    "benchmark states"
+  ],
+  "storage_du_mib": {
+    "new_first": 7.3,
+    "new_replay": 3.1,
+    "old_same_candidate_first": 542,
+    "old_same_candidate_replay": 67
+  },
+  "visual_temporal_review": "pending",
+  "known_initialization_failure": "generate_001 SetLookAt Vec3f type error, fixed to Vec3d; successful retry generate_002",
+  "groot_loader_check": {
+    "passed": true,
+    "loader": "/home/kinetra-4090-01/code/Isaac-GR00T/gr00t/data/dataset/lerobot_episode_loader.py",
+    "backend": "opencv_rgb_sequential",
+    "episodes": [
+      {
+        "episode": 0,
+        "frames": 1071,
+        "token_dim": 64,
+        "left_hand_dim": 6,
+        "right_hand_dim": 6,
+        "video_shape": [
+          480,
+          640,
+          3
+        ],
+        "labels_match_execution": true
+      }
+    ],
+    "training_run_performed": false
+  }
+}

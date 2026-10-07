@@ -1,0 +1,66 @@
+{
+  "run": "walk_02_middle_v3",
+  "success": true,
+  "clean_success": true,
+  "control_steps": 1446,
+  "duration_s": 28.92,
+  "strict_final_hold_s": 5.88,
+  "first_lift_confirmation_s": 23.54,
+  "final_whole_bottle_clearance_m": 0.09204582304115572,
+  "table_contact_peak_N": 0.0,
+  "room_contact_peak_N": 0.0,
+  "minimum_pelvis_z_m": 0.7494223713874817,
+  "navigation_planner_calls": 13,
+  "navigation_reached_grasp": true,
+  "initial_root": [
+    0.3700000047683716,
+    -0.9900000095367432,
+    0.7599999904632568
+  ],
+  "final_root": [
+    0.3634389638900757,
+    -0.5336161255836487,
+    0.756348729133606
+  ],
+  "preclosure_spatial_waypoints": [
+    [
+      0.6,
+      -0.44,
+      0.92
+    ],
+    [
+      0.4149999248981476,
+      -0.18999985694885255,
+      0.8600001192092895
+    ]
+  ],
+  "preclosure_waypoint_count": 2,
+  "retries": 0,
+  "attempts": 1,
+  "max_arm_target_velocity_rad_s": 0.8000016212463379,
+  "max_arm_target_acceleration_rad_s2": 28.370845794677734,
+  "wrist_speed_p95_m_s_during_arm_control": 0.16269356757402417,
+  "stop_reason": "Hold complete; classify from recorded physical data",
+  "runtime_result": {
+    "task_success_proxy": true,
+    "error": null,
+    "control_steps": 1446,
+    "physics_substeps": 5784,
+    "peak_lift_m": 0.10420691967010498,
+    "ever_low_pelvis": false,
+    "max_stable_lift_seconds": 5.2,
+    "termination_terms": [],
+    "record_only_termination_events": {},
+    "protocol": null,
+    "agent_decisions": 32,
+    "agent_requested_stop": true,
+    "comparison_mode": null,
+    "direct_residual_max_abs": null,
+    "grail_interaction_enabled": false,
+    "actual_control_definition": "control_definition.json",
+    "control": "SONIC V2 ONNX walking; 3s reference handoff +1s standing; actual-state right-arm IK and bounded gravity compensation, SONIC other joints; GRAIL residual zero throughout.",
+    "reference_teleport_during_execution": false
+  },
+  "external_GPT_API": false,
+  "GRAIL_interaction_enabled": false
+}

@@ -1,0 +1,183 @@
+{
+  "model": "__RUNTIME__/models/release/model_encoder.onnx",
+  "model_sha256": "013ab0287236aa2721e13f1e936d699db982302d0de0bfcdae76d5c3245362d3",
+  "observation_config_sha256": "466d05947c78af6c76388adfb86e3a2a77b2a1d921a64883ed3d085ebf58de1b",
+  "cpp_sha256": "f9265349b1567d74a90a2a2d24e08a70786bfb3ab199904851b2ae01280e2744",
+  "joint_mapping_source_sha256": "b9332adf07c2c9b75c9b1e0756e57c7a1c2a890d8bb0aa53c3f1905fb739b791",
+  "mjcf_sha256": "15a330f1dbff68cdbeb8284be6162a857bdcd21a858f65a8617fb32d5115f209",
+  "onnxruntime_version": "1.30.0",
+  "provider": "CPUExecutionProvider",
+  "input_name": "obs_dict",
+  "input_dimension": 1762,
+  "output_name": "encoded_tokens",
+  "output_dimension": 64,
+  "mode": {
+    "name": "g1",
+    "mode_id": 0,
+    "required_observations": [
+      "encoder_mode_4",
+      "motion_joint_positions_10frame_step5",
+      "motion_joint_velocities_10frame_step5",
+      "motion_anchor_orientation_10frame_step5"
+    ]
+  },
+  "layout": {
+    "encoder_mode_4": {
+      "offset": 0,
+      "size": 4
+    },
+    "motion_joint_positions_10frame_step5": {
+      "offset": 4,
+      "size": 290
+    },
+    "motion_joint_velocities_10frame_step5": {
+      "offset": 294,
+      "size": 290
+    },
+    "motion_root_z_position_10frame_step5": {
+      "offset": 584,
+      "size": 10
+    },
+    "motion_root_z_position": {
+      "offset": 594,
+      "size": 1
+    },
+    "motion_anchor_orientation": {
+      "offset": 595,
+      "size": 6
+    },
+    "motion_anchor_orientation_10frame_step5": {
+      "offset": 601,
+      "size": 60
+    },
+    "motion_joint_positions_lowerbody_10frame_step5": {
+      "offset": 661,
+      "size": 120
+    },
+    "motion_joint_velocities_lowerbody_10frame_step5": {
+      "offset": 781,
+      "size": 120
+    },
+    "vr_3point_local_target": {
+      "offset": 901,
+      "size": 9
+    },
+    "vr_3point_local_orn_target": {
+      "offset": 910,
+      "size": 12
+    },
+    "smpl_joints_10frame_step1": {
+      "offset": 922,
+      "size": 720
+    },
+    "smpl_anchor_orientation_10frame_step1": {
+      "offset": 1642,
+      "size": 60
+    },
+    "motion_joint_positions_wrists_10frame_step1": {
+      "offset": 1702,
+      "size": 60
+    }
+  },
+  "joint_names": [
+    "left_hip_pitch_joint",
+    "right_hip_pitch_joint",
+    "waist_yaw_joint",
+    "left_hip_roll_joint",
+    "right_hip_roll_joint",
+    "waist_roll_joint",
+    "left_hip_yaw_joint",
+    "right_hip_yaw_joint",
+    "waist_pitch_joint",
+    "left_knee_joint",
+    "right_knee_joint",
+    "left_shoulder_pitch_joint",
+    "right_shoulder_pitch_joint",
+    "left_ankle_pitch_joint",
+    "right_ankle_pitch_joint",
+    "left_shoulder_roll_joint",
+    "right_shoulder_roll_joint",
+    "left_ankle_roll_joint",
+    "right_ankle_roll_joint",
+    "left_shoulder_yaw_joint",
+    "right_shoulder_yaw_joint",
+    "left_elbow_joint",
+    "right_elbow_joint",
+    "left_wrist_roll_joint",
+    "right_wrist_roll_joint",
+    "left_wrist_pitch_joint",
+    "right_wrist_pitch_joint",
+    "left_wrist_yaw_joint",
+    "right_wrist_yaw_joint"
+  ],
+  "future_offsets_control_steps": [
+    0,
+    5,
+    10,
+    15,
+    20,
+    25,
+    30,
+    35,
+    40,
+    45
+  ],
+  "dt_s": 0.02,
+  "orientation": "R_actual_base(t)^T @ R_reference_root(t+offset); first two matrix columns flattened ROW-major; wxyz input; identity heading realignment because actual and reference use the same recorded world",
+  "input_semantics": "recorded actual motion reinterpreted as reference, teacher-forced recorded base orientation; NOT reconstruction of original controller encoder inputs",
+  "tail_policy": "clamp each future index to last recorded sample, including recorded velocity; flag last45 rows as padded",
+  "tokens_semantics": "ONNX encoded_tokens output; exporter source calls encode() with quantization enabled when configured. Float representation, not integer token IDs; not the pre-quantization residual latent.",
+  "physics_rollout_tested": false,
+  "training_ready": false,
+  "runs": {
+    "full_waypoints": {
+      "source": "__RUNTIME__/workspace/exports/g1_revo2_bottle_trajectories_20260925/full_waypoints/trajectory_named.npz",
+      "source_sha256": "1f1802d5f1cfb1c3b84449edbf4d61f836bca6bb454680efb101afb314858b10",
+      "output": "full_waypoints_tokens.npz",
+      "output_sha256": "220c9ce3e15c1e414e508849a14d51e78fce3bd87625320cdb4478ac6f41cf47",
+      "shape": [
+        1641,
+        64
+      ],
+      "dtype": "float32",
+      "finite": true,
+      "min": -0.4375,
+      "max": 0.5,
+      "unique_rows": 894,
+      "varying_dimensions": 64,
+      "full_window_rows": 1596,
+      "padded_tail_rows": 45,
+      "repeat_inference_max_error": 0.0,
+      "orientation_scalar_check_max_error": 0.0,
+      "joint_name_mapping_verified": true
+    },
+    "simplified_arc": {
+      "source": "__RUNTIME__/workspace/exports/g1_revo2_bottle_trajectories_20260925/simplified_arc/trajectory_named.npz",
+      "source_sha256": "eac703fbb80793780d24b1a2e8f7ea59b1cee88c8dfc2fa08832da00699e1d92",
+      "output": "simplified_arc_tokens.npz",
+      "output_sha256": "f753934b3a6251098fd01b5a1c0b30bfd89759409764b426b5765bb7a259bcd1",
+      "shape": [
+        1726,
+        64
+      ],
+      "dtype": "float32",
+      "finite": true,
+      "min": -0.5,
+      "max": 0.5,
+      "unique_rows": 964,
+      "varying_dimensions": 64,
+      "full_window_rows": 1681,
+      "padded_tail_rows": 45,
+      "repeat_inference_max_error": 0.0,
+      "orientation_scalar_check_max_error": 0.0,
+      "joint_name_mapping_verified": true
+    }
+  },
+  "common_prefix_first785_tokens_equal": true,
+  "graph_quantization_operators": {
+    "Round": 3,
+    "Tanh": 3,
+    "Floor": 0,
+    "Clip": 0
+  }
+}

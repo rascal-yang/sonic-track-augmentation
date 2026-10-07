@@ -1,0 +1,46 @@
+# @package _global_
+#
+# All-object HOI eval for p024 all-to-all object-mix runs.
+# Metrics intentionally cover every wrapper USD in
+# p024_0512_all2all_objmix_geom_yup/object_usd_list.txt. W&B render is kept
+# to a smaller sanity subset so video generation does not block metric logging.
+
+experiment_dir: ???
+max_train_steps: 1000000
+num_eval_envs: 140
+num_render_videos: 16
+
+scan_interval: 60
+checkpoint_ready_delay: 60
+
+eval_frequency: null
+eval_last_n: 1
+eval_callbacks: im_eval
+eval_datasets: null
+eval_modes: [null]
+num_test_render_videos: 16
+
+single_pass: false
+
+# Eval-specific overrides. Data paths, object list, SONIC checkpoint, table
+# setup, upright reward, and all-to-all sampling come from the saved training
+# config.yaml. The motion limit matches the 140-object wrapper list so metrics
+# evaluate every object once.
+extra_overrides:
+  - "++manager_env.commands.motion.velocity_range.x=[0,0]"
+  - "++manager_env.commands.motion.velocity_range.y=[0,0]"
+  - "++manager_env.commands.motion.velocity_range.z=[0,0]"
+  - "++manager_env.commands.motion.velocity_range.roll=[0,0]"
+  - "++manager_env.commands.motion.velocity_range.pitch=[0,0]"
+  - "++manager_env.commands.motion.velocity_range.yaw=[0,0]"
+  - "++manager_env.commands.motion.joint_velocity_range=[0,0]"
+  - "++manager_env.commands.motion.motion_lib_cfg.max_unique_motions=140"
+  - "++manager_env.commands.motion.motion_lib_cfg.interleave_by_object=true"
+  - "++manager_env.commands.motion.motion_lib_cfg.load_unique_motions=true"
+  - "++manager_env.commands.motion.motion_lib_cfg.motion_shard_world_size=1"
+  - "++manager_env.commands.motion.motion_lib_cfg.motion_shard_rank=0"
+
+capture_output: false
+render_timeout: 10800
+render_sort_by: obj_pos_error
+mark_metrics_only_as_evaluated: true

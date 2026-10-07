@@ -1,0 +1,201 @@
+{
+  "source": "__RUNTIME__/workspace/experiments/20260921_new_scene_closed_loop/runs/stationary_004",
+  "source_success": {
+    "run": "stationary_004",
+    "success": true,
+    "clean_success": true,
+    "control_steps": 871,
+    "duration_s": 17.42,
+    "strict_final_hold_s": 5.96,
+    "first_lift_confirmation_s": 11.96,
+    "final_whole_bottle_clearance_m": 0.09424009652468379,
+    "table_contact_peak_N": 0.0,
+    "room_contact_peak_N": 0.0,
+    "minimum_pelvis_z_m": 0.7493503093719482,
+    "navigation_planner_calls": 0,
+    "navigation_reached_grasp": true,
+    "initial_root": [
+      0.3700000047683716,
+      -0.5400000214576721,
+      0.7599999904632568
+    ],
+    "final_root": [
+      0.35113799571990967,
+      -0.5266005992889404,
+      0.7576121687889099
+    ],
+    "preclosure_spatial_waypoints": [
+      [
+        0.6,
+        -0.44,
+        0.92
+      ],
+      [
+        0.4149998950958252,
+        -0.1899999612569809,
+        0.8600000596046448
+      ]
+    ],
+    "preclosure_waypoint_count": 2,
+    "retries": 0,
+    "attempts": 1,
+    "max_arm_target_velocity_rad_s": 0.8000016212463379,
+    "max_arm_target_acceleration_rad_s2": 31.10849380493164,
+    "wrist_speed_p95_m_s_during_arm_control": 0.16563602909445757,
+    "stop_reason": "Hold complete; classify from recorded physical data",
+    "runtime_result": {
+      "task_success_proxy": true,
+      "error": null,
+      "control_steps": 871,
+      "physics_substeps": 3484,
+      "peak_lift_m": 0.10572725534439087,
+      "ever_low_pelvis": false,
+      "max_stable_lift_seconds": 5.36,
+      "termination_terms": [],
+      "record_only_termination_events": {},
+      "protocol": null,
+      "agent_decisions": 25,
+      "agent_requested_stop": true,
+      "comparison_mode": null,
+      "direct_residual_max_abs": null,
+      "grail_interaction_enabled": false,
+      "actual_control_definition": "control_definition.json",
+      "control": "SONIC V2 ONNX walking; 3s reference handoff +1s standing; actual-state right-arm IK and bounded gravity compensation, SONIC other joints; GRAIL residual zero throughout.",
+      "reference_teleport_during_execution": false
+    },
+    "external_GPT_API": false,
+    "GRAIL_interaction_enabled": false
+  },
+  "joint_names": [
+    "left_hip_pitch_joint",
+    "right_hip_pitch_joint",
+    "waist_yaw_joint",
+    "left_hip_roll_joint",
+    "right_hip_roll_joint",
+    "waist_roll_joint",
+    "left_hip_yaw_joint",
+    "right_hip_yaw_joint",
+    "waist_pitch_joint",
+    "left_knee_joint",
+    "right_knee_joint",
+    "left_shoulder_pitch_joint",
+    "right_shoulder_pitch_joint",
+    "left_ankle_pitch_joint",
+    "right_ankle_pitch_joint",
+    "left_shoulder_roll_joint",
+    "right_shoulder_roll_joint",
+    "left_ankle_roll_joint",
+    "right_ankle_roll_joint",
+    "left_shoulder_yaw_joint",
+    "right_shoulder_yaw_joint",
+    "left_elbow_joint",
+    "right_elbow_joint",
+    "left_wrist_roll_joint",
+    "right_wrist_roll_joint",
+    "left_wrist_pitch_joint",
+    "right_wrist_pitch_joint",
+    "left_wrist_yaw_joint",
+    "right_wrist_yaw_joint",
+    "left_hand_index_0_joint",
+    "left_hand_middle_0_joint",
+    "left_hand_thumb_0_joint",
+    "right_hand_index_0_joint",
+    "right_hand_middle_0_joint",
+    "right_hand_thumb_0_joint",
+    "left_hand_index_1_joint",
+    "left_hand_middle_1_joint",
+    "left_hand_thumb_1_joint",
+    "right_hand_index_1_joint",
+    "right_hand_middle_1_joint",
+    "right_hand_thumb_1_joint",
+    "left_hand_thumb_2_joint",
+    "right_hand_thumb_2_joint"
+  ],
+  "finger_joint_names": [
+    "right_index_proximal_joint",
+    "right_middle_proximal_joint",
+    "right_pinky_proximal_joint",
+    "right_ring_proximal_joint",
+    "right_thumb_metacarpal_joint",
+    "right_index_distal_joint",
+    "right_middle_distal_joint",
+    "right_pinky_distal_joint",
+    "right_ring_distal_joint",
+    "right_thumb_proximal_joint",
+    "right_thumb_distal_joint"
+  ],
+  "palm_definition": "wrist_yaw_link + local [0.07,0,0] metres",
+  "semantics": "Measured posture and phase hints; no target-command replay. Object-relative contact hints; root-relative noncontact transport hints. Recheck full hand swept volume in new poses.",
+  "events": [
+    {
+      "step": 60,
+      "action": "reach",
+      "goal": {
+        "hand": "right",
+        "target": [
+          0.6,
+          -0.44,
+          0.92
+        ],
+        "wrist_euler_xyz": [
+          0,
+          0,
+          1.57
+        ],
+        "duration_steps": 110,
+        "arm_speed_limit_rad_s": 0.8,
+        "progress_profile": "quintic"
+      }
+    },
+    {
+      "step": 210,
+      "action": "reach",
+      "goal": {
+        "hand": "right",
+        "target": [
+          0.4149998950958252,
+          -0.1899999612569809,
+          0.8600000596046448
+        ],
+        "wrist_euler_xyz": [
+          0,
+          0,
+          1.57
+        ],
+        "duration_steps": 200,
+        "arm_speed_limit_rad_s": 0.8,
+        "progress_profile": "early_deceleration"
+      }
+    },
+    {
+      "step": 435,
+      "action": "close_hand",
+      "goal": {
+        "closure": 0.35,
+        "closure_steps": 60,
+        "finger_stiffness": 4
+      }
+    },
+    {
+      "step": 495,
+      "action": "lift",
+      "goal": {
+        "hand": "right",
+        "target": [
+          0.4149998950958252,
+          -0.1899999612569809,
+          1.0000000596046448
+        ],
+        "wrist_euler_xyz": [
+          0,
+          0,
+          1.57
+        ],
+        "duration_steps": 150,
+        "arm_speed_limit_rad_s": 0.55,
+        "progress_profile": "quintic"
+      }
+    }
+  ],
+  "visual_quality": "Source physics success does not approve its RGB for training."
+}

@@ -1,0 +1,21 @@
+{
+  "completed": 7,
+  "physical_successes": 7,
+  "aligned_states_per_run": 1072,
+  "control_steps_per_run": 1071,
+  "physics_samples_per_run": 4284,
+  "all_checked_repeat_states_bitwise_equal": true,
+  "all_component_partitions_close": true,
+  "decoder_token_checks_passed": true,
+  "source_integrity": {
+    "original_candidate_files_unchanged": {
+      "deployment_parameters.json": true,
+      "plan.json": true,
+      "initial_state.npz": true,
+      "provenance.json": true,
+      "prepared_files.json": true,
+      "grasp_tokens.npz": true
+    }
+  },
+  "camera_videos_fully_decoded": 3
+}

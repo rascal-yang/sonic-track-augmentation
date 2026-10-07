@@ -1,0 +1,10 @@
+# @package _global_
+# Terrain-specific eval config — uses TerrainCheckpointEvaluator for:
+# - Termination reason breakdown logged to wandb (eval/terminate_reason/*)
+# - Video keys use motion name instead of index
+# - Depth videos (_depth.mp4) excluded from video count and wandb upload
+
+defaults:
+  - eval_exp
+
+evaluator_target: gear_sonic.eval_exp_terrain.TerrainCheckpointEvaluator

@@ -1,0 +1,8 @@
+# Early termination penalty
+# Returns 1.0 for envs that terminated this step (not from timeout), 0.0 otherwise.
+# Use with a negative weight to penalize the policy for triggering termination conditions.
+# Uses IsaacLab's built-in is_terminated function.
+is_terminated:
+  _target_: isaaclab.managers.RewardTermCfg
+  func: isaaclab.envs.mdp:is_terminated
+  weight: -10.0
