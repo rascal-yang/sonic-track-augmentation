@@ -10547,7 +10547,9 @@
   {
     "source": "/home/kinetra-4090-01/code/zijian/exports/g1_revo2_mobile60_scene_20261002/payload/workspace/pipelines/sonic_teleop_augmentation/lean_capture.py",
     "path": "payload/workspace/pipelines/sonic_teleop_augmentation/lean_capture.py",
-    "source_sha256": "85d3c25411bd66bcba279bac868bfcdf867f52bcb8a4b5c257a36c82b5251cc9"
+    "source_sha256": "85d3c25411bd66bcba279bac868bfcdf867f52bcb8a4b5c257a36c82b5251cc9",
+    "repository_sha256": "53998881a2141aaa3382f47137546ea461fc8ed4f3b4e30f48320127a3b91bc4",
+    "adaptation": "20261008 RT2 native DLAA / configurable updates; original source hash retained"
   },
   {
     "source": "/home/kinetra-4090-01/code/zijian/exports/g1_revo2_mobile60_scene_20261002/payload/workspace/pipelines/sonic_teleop_augmentation/token_controller.py",
@@ -10577,7 +10579,9 @@
   {
     "source": "/home/kinetra-4090-01/code/zijian/exports/g1_revo2_mobile60_scene_20261002/payload/workspace/pipelines/sonic_teleop_augmentation/lean_run.py",
     "path": "payload/workspace/pipelines/sonic_teleop_augmentation/lean_run.py",
-    "source_sha256": "c989ad220d8a28b96f17a309881cb4c261661061a37e21956ee608b367878859"
+    "source_sha256": "c989ad220d8a28b96f17a309881cb4c261661061a37e21956ee608b367878859",
+    "repository_sha256": "a820d772b05a49c0c261df0be20639162a81b393a434160159beed84abeee744",
+    "adaptation": "20261008 RT2 native DLAA / configurable updates; original source hash retained"
   },
   {
     "source": "/home/kinetra-4090-01/code/zijian/exports/g1_revo2_mobile60_scene_20261002/payload/workspace/pipelines/sonic_teleop_augmentation/replay_controller.py",
@@ -10977,7 +10981,9 @@
   {
     "source": "/home/kinetra-4090-01/code/zijian/pipelines/sonic_teleop_augmentation/lean_capture.py",
     "path": "payload/workspace/pipelines/sonic_teleop_augmentation/lean_capture.py",
-    "source_sha256": "85d3c25411bd66bcba279bac868bfcdf867f52bcb8a4b5c257a36c82b5251cc9"
+    "source_sha256": "85d3c25411bd66bcba279bac868bfcdf867f52bcb8a4b5c257a36c82b5251cc9",
+    "repository_sha256": "53998881a2141aaa3382f47137546ea461fc8ed4f3b4e30f48320127a3b91bc4",
+    "adaptation": "20261008 RT2 native DLAA / configurable updates; original source hash retained"
   },
   {
     "source": "/home/kinetra-4090-01/code/zijian/pipelines/sonic_teleop_augmentation/token_controller.py",
@@ -11007,7 +11013,9 @@
   {
     "source": "/home/kinetra-4090-01/code/zijian/pipelines/sonic_teleop_augmentation/lean_run.py",
     "path": "payload/workspace/pipelines/sonic_teleop_augmentation/lean_run.py",
-    "source_sha256": "b32997efed90b2d77cb938b7830988f73143efa9af9dac1666c54ef82e88777f"
+    "source_sha256": "b32997efed90b2d77cb938b7830988f73143efa9af9dac1666c54ef82e88777f",
+    "repository_sha256": "a820d772b05a49c0c261df0be20639162a81b393a434160159beed84abeee744",
+    "adaptation": "20261008 RT2 native DLAA / configurable updates; original source hash retained"
   },
   {
     "source": "/home/kinetra-4090-01/code/zijian/pipelines/sonic_teleop_augmentation/replay_controller.py",

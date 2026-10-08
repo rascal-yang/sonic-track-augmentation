@@ -119,6 +119,17 @@ class PreparationTests(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError, 'candidate'):
             bind(candidates, output)
 
+    def test_batch_resume_rejects_changed_render_updates(self):
+        module = self.module()
+        candidates = Path(self.temp.name)/'candidates'
+        (candidates/'pose_01').mkdir(parents=True)
+        (candidates/'pose_01/prepared_files.json').write_text('{"initial_state.npz":"first"}')
+        output = Path(self.temp.name)/'collection'
+        module.bind_collection(candidates, output, render_updates=1)
+        module.bind_collection(candidates, output, render_updates=1)
+        with self.assertRaises(RuntimeError):
+            module.bind_collection(candidates, output, render_updates=4)
+
 
 if __name__ == '__main__':
     unittest.main()

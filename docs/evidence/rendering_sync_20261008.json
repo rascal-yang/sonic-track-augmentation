@@ -1,0 +1,230 @@
+{
+  "date": "2026-10-08",
+  "experiment_root": "experiments/20261008_render_repository_sync",
+  "machine": {
+    "gpu": "RTX 4090",
+    "driver": "580.178.04",
+    "isaac_sim": "5.1.0",
+    "isaac_lab": "0.54.2",
+    "python": "3.11.15",
+    "torch": "2.7.0+cu128"
+  },
+  "g1": {
+    "run": "g1_rt2_1update_final",
+    "complete": {
+      "route": "rt2",
+      "frames": 250,
+      "fps": 25.0,
+      "clip_duration_s": 10.0,
+      "elapsed_s": 5.397446447983384,
+      "startup_s": 9.130397432018071,
+      "warmup_s": 0.6458405659650452,
+      "frame_s_mean": 0.01715070484695025,
+      "frame_s_p95": 0.022412945385440246,
+      "component_total_s": {
+        "pose_s": 1.3757398323505186,
+        "render_s": 1.309101396938786,
+        "readback_s": 0.3626159021514468,
+        "write_s": 1.237607827235479
+      },
+      "updates_minmax": [
+        1,
+        1
+      ],
+      "settings": {
+        "/rtx/rtpt/maxBounces": 4,
+        "/rtx/rtpt/maxSpecularAndTransmissionBounces": 6,
+        "/rtx/rtpt/translucency/virtualMotion/enabled": true,
+        "/rtx/post/aa/op": 4,
+        "/rtx/post/dlss/execMode": 0,
+        "/persistent/rtx/modes/rt2/enabled": true,
+        "/omni/replicator/asyncRendering": false,
+        "/app/asyncRendering": false,
+        "/rtx/reflections/enabled": true,
+        "/rtx/translucency/enabled": true,
+        "/rtx/indirectDiffuse/enabled": true,
+        "/rtx/rendermode": "RealTimePathTracing",
+        "/rtx/pathtracing/spp": 64,
+        "/rtx/pathtracing/totalSpp": 64,
+        "/rtx/pathtracing/clampSpp": 64,
+        "/rtx/pathtracing/adaptiveSampling/enabled": false,
+        "/rtx/pathtracing/adaptiveSampling/targetError": 0.0010000000474974513,
+        "/rtx/pathtracing/optixDenoiser/enabled": true,
+        "/rtx/pathtracing/maxBounces": 4,
+        "/rtx/pathtracing/maxSpecularAndTransmissionBounces": 6,
+        "/rtx-transient/dlssg/enabled": false,
+        "/rtx/post/tonemap/exposureKey": 0.6,
+        "/rtx/post/histogram/enabled": false,
+        "/renderer/activeGpu": 0,
+        "/renderer/multiGpu/enabled": false,
+        "/app/renderer/waitIdle": true
+      },
+      "render_updates_per_pose": 1,
+      "physics_advanced": false,
+      "visual_realism_accepted": false
+    },
+    "rgb_shape": [
+      250,
+      480,
+      640,
+      3
+    ],
+    "control_index": {
+      "first": 600,
+      "last": 1098,
+      "stride": 2
+    },
+    "initial_state_restoration": {
+      "bodies": 81,
+      "max_position_error_m": 0.0,
+      "max_quaternion_error": 2.810649752937877e-07
+    },
+    "video": {
+      "full_decode_passed": true,
+      "probe": {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 480,
+        "r_frame_rate": "25/1",
+        "duration": "10.000000",
+        "nb_read_frames": "250"
+      },
+      "bytes": 12068112
+    },
+    "visual_review": {
+      "accepted": false,
+      "temporal_review_status": "sampled_only_native_playback_pending",
+      "reviewed_frames": [
+        0,
+        25,
+        50,
+        75,
+        100,
+        150,
+        200,
+        249
+      ],
+      "physics_advanced": false,
+      "note": "Sampled output inspected; material issue unresolved. No native-rate temporal acceptance, depth/segmentation or external-view review.",
+      "training_ready": false,
+      "findings": [
+        "Bottle white label appears black throughout inspected frames; historical saved-scene appearance is not reproduced.",
+        "Viewport grid overlay visible in isolated baseline renderer. Existing working-tree grid-disable change is preserved during integration.",
+        "Visible hand/finger geometry present in inspected images; all occluded regions not checked."
+      ]
+    }
+  },
+  "sonic": {
+    "run": "sonic_pair",
+    "process": {
+      "wall_s": 348.36875743203564,
+      "first_wall_s": 186.0166716419626,
+      "replay_wall_s": 162.01567496801727,
+      "scope": "Includes startup/exit and export; excludes prepare/candidate/check-export"
+    },
+    "generate": {
+      "task_success": true,
+      "complete_sequence": true,
+      "control_steps": 1071,
+      "duration_s": 21.42,
+      "strict_final_hold_s": 4.44,
+      "final_clearance_m": 0.12402330604932155,
+      "final3s_opposed_fraction": 1.0,
+      "final3s_slip_m": 0.00020265348251249942,
+      "final3s_rotation_deg": 0.06985057809833681,
+      "minimum_pelvis_z_m": 0.753367006778717,
+      "monitored_table_force_peak_N": 0.0,
+      "contact_samples": 4284,
+      "stop_reason": null,
+      "profile": "generate",
+      "elapsed_capture_s": 161.86230738897575,
+      "training_ready": false,
+      "visual_review": "pending",
+      "validation_scope": "Terminal 3s grasp and aggregate online guards; no full trajectory equivalence check"
+    },
+    "replay": {
+      "task_success": true,
+      "complete_sequence": true,
+      "control_steps": 1071,
+      "duration_s": 21.42,
+      "strict_final_hold_s": 4.44,
+      "final_clearance_m": 0.12402330604932155,
+      "final3s_opposed_fraction": 1.0,
+      "final3s_slip_m": 0.00020265348251249942,
+      "final3s_rotation_deg": 0.06985057809833681,
+      "minimum_pelvis_z_m": 0.753367006778717,
+      "monitored_table_force_peak_N": 0.0,
+      "contact_samples": 4284,
+      "stop_reason": null,
+      "profile": "replay",
+      "elapsed_capture_s": 140.80719675403088,
+      "training_ready": false,
+      "visual_review": "no_video_by_design",
+      "validation_scope": "Terminal 3s grasp and aggregate online guards; no full trajectory equivalence check"
+    },
+    "renderer": {
+      "profile": "rt2-native-dlaa",
+      "actual_settings": {
+        "/rtx/rendermode": "RealTimePathTracing",
+        "/persistent/rtx/modes/rt2/enabled": true,
+        "/rtx/post/aa/op": 4,
+        "/rtx/rtpt/maxBounces": 4,
+        "/rtx/rtpt/maxSpecularAndTransmissionBounces": 6,
+        "/rtx/rtpt/translucency/virtualMotion/enabled": true,
+        "/rtx/reflections/enabled": true,
+        "/rtx/translucency/enabled": true,
+        "/rtx-transient/dlssg/enabled": false,
+        "/omni/replicator/asyncRendering": false,
+        "/app/asyncRendering": false,
+        "/app/renderer/waitIdle": true,
+        "/rtx/post/tonemap/exposureKey": 0.6,
+        "/renderer/activeGpu": 0,
+        "/renderer/multiGpu/enabled": false
+      },
+      "updates_per_native_frame": 1,
+      "initial_warmup_updates": 4,
+      "physics_control_changed": false,
+      "training_ready": false
+    },
+    "video": {
+      "full_decode_passed": true,
+      "probe": {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 480,
+        "r_frame_rate": "50/1",
+        "duration": "21.420000",
+        "nb_read_frames": "1071"
+      },
+      "bytes": 2487165
+    },
+    "visual_review": {
+      "accepted": false,
+      "training_ready": false,
+      "temporal_review_status": "sampled_only_native_playback_pending",
+      "reviewed_frames": [
+        0,
+        200,
+        400,
+        600,
+        750,
+        850,
+        950,
+        1070
+      ],
+      "findings": [
+        "Bottle label white, cap and visible fingers opaque/present in inspected frames.",
+        "No obvious missing fingers in inspected views; finer basket texture and reflection variation not fully accepted."
+      ],
+      "limits": [
+        "Native-frame-rate perceptual flicker review pending.",
+        "Occluded bilateral hand regions, external view, depth/segmentation and final next-observation RGB not fully reviewed."
+      ]
+    },
+    "groot_loader": "Passed official vendored GR00T loader for 1 episode; check_export.log",
+    "replay_has_video": false,
+    "runtime_core_comparison": "Final v2 differs from full-physics tested v1 only by added offline_update_count; all other AST nodes identical; final v2 prepare/doctor/check-export passed"
+  },
+  "helper_sha256": "762aedc3d64387c21617bdb6df3a39f666242e4b495c7754584de2e2f1f957b1",
+  "training_ready": false
+}

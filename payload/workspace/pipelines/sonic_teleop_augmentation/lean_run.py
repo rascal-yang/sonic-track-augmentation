@@ -50,5 +50,7 @@ else:
     policy()
     controller(candidate/'grasp_tokens.npz', MODEL/'model_decoder.onnx',
                candidate/'deployment_parameters.json', W/'g1_closed_loop/.deps')
+from render_settings import install_launcher
+install_launcher()
 from experiment import run
 run(out.name, sonic_planner=True, seed=17)

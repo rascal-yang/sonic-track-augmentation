@@ -36,5 +36,15 @@
     "Most source is byte-identical or only __RUNTIME__ path substitutions.",
     "Base runtime inherits previously validated portable mobile60 scene changes; no new scene/controller changes.",
     "Three extra adapters: configurable grasp seed, explicit reference output, and explicit GR00T path."
-  ]
+  ],
+  "rendering_sync_20261008": {
+    "default": "rt2-native-dlaa, 1 update; first frame 4 updates",
+    "modified_payload": [
+      "payload/workspace/pipelines/sonic_teleop_augmentation/lean_capture.py",
+      "payload/workspace/pipelines/sonic_teleop_augmentation/lean_run.py"
+    ],
+    "added_payload": "payload/workspace/pipelines/sonic_teleop_augmentation/render_settings.py",
+    "physics_or_controller_parameters_changed": false,
+    "basis": "20261008_rt2_D1/D2/D4 measured fixed-token experiments; native temporal visual acceptance still pending"
+  }
 }

@@ -1,0 +1,53 @@
+[
+  {
+    "file": "abcd_20260921.mp4",
+    "original_source": "experiments/20260921_genie_rt2_10s/comparison_10s.mp4",
+    "sha256": "46c35536fdcc2c3c7faa9a08c1049961587261c2d5d992854dece7c0585d8a7e",
+    "bytes": 45713795,
+    "probe": {
+      "codec_name": "h264",
+      "width": 1280,
+      "height": 1024,
+      "r_frame_rate": "25/1",
+      "duration": "10.000000",
+      "nb_read_frames": "250"
+    },
+    "full_decode_passed": true,
+    "note": "Historical A/B/C/D; 10 s saved states, 25fps; A original optimized source missing",
+    "accepted_for_training": false
+  },
+  {
+    "file": "d4_vs_d2_20261008.mp4",
+    "original_source": "experiments/20261008_rt2_D2_updates_compare/comparison.mp4",
+    "sha256": "4b7545cb573587e7a1db100544e59d103b49a24a1f482a3e47289ae1651f66de",
+    "bytes": 5639785,
+    "probe": {
+      "codec_name": "h264",
+      "width": 1280,
+      "height": 512,
+      "r_frame_rate": "50/1",
+      "duration": "21.420000",
+      "nb_read_frames": "1071"
+    },
+    "full_decode_passed": true,
+    "note": "Left D4, right D2; fixed tokens, 21.42 s physical replay",
+    "accepted_for_training": false
+  },
+  {
+    "file": "d2_vs_d1_20261008.mp4",
+    "original_source": "experiments/20261008_rt2_D1_updates_compare/comparison.mp4",
+    "sha256": "6c1b02adb0a1a1c4a2cc6dc3abfcc61892a60ef22c20ceb0c1926e1dd1d6426d",
+    "bytes": 5448730,
+    "probe": {
+      "codec_name": "h264",
+      "width": 1280,
+      "height": 512,
+      "r_frame_rate": "50/1",
+      "duration": "21.420000",
+      "nb_read_frames": "1071"
+    },
+    "full_decode_passed": true,
+    "note": "Left D2, right D1; fixed tokens, 21.42 s physical replay",
+    "accepted_for_training": false
+  }
+]

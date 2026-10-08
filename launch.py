@@ -99,7 +99,7 @@ def environment(runtime, ort_path=None, seed=None):
     return env
 
 
-def bind_collection(candidates, output):
+def bind_collection(candidates, output, render_updates=1):
     """Prevent upstream name-only resume from mixing different candidate batches."""
     candidates, output = Path(candidates).resolve(), Path(output).resolve()
     records = {str(path.parent.relative_to(candidates)):digest(path)
@@ -107,7 +107,7 @@ def bind_collection(candidates, output):
     if not records:
         raise RuntimeError('No prepared candidate manifests found: '+str(candidates))
     request = {'candidates':str(candidates), 'prepared_files_sha256':records,
-               'resources_sha256':digest(ROOT/'resources.json')}
+               'resources_sha256':digest(ROOT/'resources.json'), 'render_updates':render_updates}
     marker = output/'collection_request.json'
     if output.exists():
         if not marker.is_file() or json.loads(marker.read_text()) != request:
@@ -170,6 +170,8 @@ def main():
         p.add_argument('--seed', type=Path, help='Validated grasp-reference directory; default packaged safe025')
         if name in ['candidate', 'prepare-batch', 'collect', 'trial', 'replay', 'seed-reference']:
             p.add_argument('--output', type=Path, required=True)
+        if name in ['collect', 'trial', 'replay']:
+            p.add_argument('--render-updates', type=int, choices=[1,2,4], default=1)
         if name == 'candidate':
             p.add_argument('--dx', type=float, default=0.)
             p.add_argument('--dy', type=float, default=0.)
@@ -201,6 +203,8 @@ def main():
             parser.error('--output must be a new directory')
     runtime = prepare(args.runtime)
     env = environment(runtime, args.ort_path, args.seed)
+    if hasattr(args, 'render_updates'):
+        env['SONIC_RENDER_UPDATES'] = str(args.render_updates)
     pipe = runtime/'workspace/pipelines/sonic_teleop_augmentation'
     if args.action == 'prepare':
         print(runtime)
@@ -233,7 +237,7 @@ def main():
         else:
             if args.no_export:
                 parser.error('--no-export is only supported for single-pair collection')
-            bind_collection(args.candidates, args.output)
+            bind_collection(args.candidates, args.output, args.render_updates)
             arguments = ['--candidates', args.candidates.resolve(), '--output', args.output]
             if args.limit is not None:
                 arguments += ['--limit', args.limit]

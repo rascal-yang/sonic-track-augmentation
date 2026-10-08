@@ -8,6 +8,7 @@ from pathlib import Path
 import numpy as np
 from scipy.spatial.transform import Rotation as R
 from common import write
+from render_settings import configure_rt2, resolve_updates, updates_for_frame
 
 
 def cpu(value):
@@ -49,11 +50,14 @@ class TrainingCapture:
         import omni.usd
         import carb
         import imageio.v2 as imageio
-        rep.settings.set_render_rtx_realtime(antialiasing='DLAA')
         settings = carb.settings.get_settings()
-        settings.set_bool('/rtx/translucency/enabled', True)
-        settings.set_bool('/rtx/reflections/enabled', True)
-        settings.set_float('/rtx/post/tonemap/exposureKey', .6)
+        self.render_updates = resolve_updates()
+        actual = configure_rt2(settings)
+        write(self.out/'renderer_settings.json', dict(
+            profile='rt2-native-dlaa', actual_settings=actual,
+            updates_per_native_frame=self.render_updates,
+            initial_warmup_updates=updates_for_frame(0, self.render_updates),
+            physics_control_changed=False, training_ready=False))
         camera = UsdGeom.Camera.Define(omni.usd.get_context().get_stage(), '/World/Capture/head')
         camera.CreateHorizontalApertureAttr(36)
         camera.CreateVerticalApertureAttr(27)
@@ -81,7 +85,7 @@ class TrainingCapture:
         up = rot.apply([0, 0, 1])
         matrix = Gf.Matrix4d().SetLookAt(Gf.Vec3d(*eye), Gf.Vec3d(*(eye+direction)), Gf.Vec3d(*up)).GetInverse()
         self.camera.Set(matrix)
-        for _ in range(4 if self.control_index == 0 else 2):
+        for _ in range(updates_for_frame(self.control_index, self.render_updates)):
             self.env.sim.render()
         raw = self.annotator.get_data()
         if isinstance(raw, dict):
