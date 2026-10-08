@@ -36,6 +36,8 @@ RTX4090，驱动580.178.04，IsaacSim5.1.0、IsaacLab0.54.2，Python3.11.15、to
 | 独立replay，无RGB | 140.807s | 162.016s |
 | 配对总计，含导出 | — | **348.369s，5分48秒** |
 
+**5分48秒包含独立 replay。** 若只做首次采集，可使用 `trial` 跳过 replay；首次 generate 进程实测186.017s（3分6秒），可省去约162.016s的独立复验进程。该速度是从已测 generate 区间得到，未另行复测 trial；trial 不自动执行 LeRobot 导出，未回放的数据也不能标记为 replay 成功。具体命令及边界见 [跳过独立 replay](RENDERING.md#跳过独立-replay-以提速)。
+
 总计不含资源准备、candidate编码/几何筛选、GPT获取种子或GR00T读取检查。单次结果比之前迁移时的8分8秒短，但跨运行的GPU竞争、启动和执行差异不能全部归因于这次render设置修改。固定token D4/D2/D1的可比区间另见渲染文档。
 
 两次均 `task_success=true`、`complete_sequence=true`，严格最终持瓶4.44s，离桌0.124m，末3秒对向接触比例1.0，滑移0.203mm，旋转0.070度；本次只做终段指标及在线聚合门限检查，没有宣称新生成与replay的全轨迹逐值等价。原相机25Hz，存储视频50FPS因果保持，不采用插帧。生成的H.264视频640×480/1071帧/21.42s，完整解码通过；replay没有head.mp4，符合原无相机流程。通过仓库内官方GR00T loader读取1个导出episode。

@@ -69,6 +69,8 @@ python launch.py replay --first ../sonic_runs/trial_001 \
   --output ../sonic_runs/replay_001
 ```
 
+**可跳过独立 replay 以提速：使用上面的 `trial` 命令只做首次生成和RGB采集，不运行后续 `replay`。** 最新完整配对5分48秒包含首次生成3分6秒＋replay2分42秒；只采集首次轨迹按该 generate 进程实测约需3分钟，准备/GPT/候选编码另计。`trial` 不自动导出 LeRobot；`collect` 和批量collect仍默认逐条复验，目前没有 `--no-replay` 参数，`--no-export` 也不会关闭 replay。跳过后须保留“未回放”状态，不能把首次成功写成独立回放成功。详见 [运行方式与验证边界](docs/RENDERING.md#跳过独立-replay-以提速)。
+
 `--seed /path/to/validated_grasp` 可替换抓取种子。目录必须匹配原始契约：`grasp_reference.npz`、`grasp_tokens.npz`、`initial_state.npz`、`deployment_parameters.json`、`waypoints.json`；原 mode1 参考编译还读取 `geometry_check.json`。修改种子后必须重新检查几何与物理，不能沿用旧成功结论。走近/停靠当前仍使用这一桌边的既有校准，换场景需要重新验证。
 
 ## 一条种子准备并采集60条

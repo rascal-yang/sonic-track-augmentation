@@ -31,6 +31,29 @@ python launch.py collect --runtime /path/to/new_runtime \
 
 两个仓库的 `render_settings.py` 核心参数与辅助实现逐字相同，只保留各自的入口适配。无需安装另一仓库；控制器、模型、PD、接触门限、双手、物理200Hz/控制50Hz/原生相机25Hz均未调整。SONIC 更新 `resources.json` 后旧 runtime 会被拒绝，使用新目录；Git 源码不包含模型、USD和成功种子等大资源，仍需完整资源交付包。
 
+## 跳过独立 replay 以提速
+
+**独立物理 replay 是额外复验步骤，可以选择不运行，以缩短首次采集时间。** 10月8日 RT2/DLAA、1 update 的完整配对实测为348.37s（5分48秒），其中首次生成＋RGB采集进程186.02s（3分6秒），无相机 replay 进程162.02s（2分42秒）。首次生成的执行/采集本身161.86s，其余为启动收尾等开销。只保留首次采集按该 generate 进程实测约需3分钟；这不是另一次独立 trial 测速，也不包含资源准备、GPT种子搜索、候选编码/几何筛选或GR00T读取检查。
+
+当前使用已有的 `trial` 入口跳过 replay，不需要修改控制源码。在 **sonic-grasp-augmentation** 仓库运行：
+
+```bash
+# 只做首次生成和RGB/实际token采集，不启动独立replay。
+python launch.py trial --runtime /path/to/new_runtime \
+  --candidate /path/to/candidate --output /path/to/new_trial \
+  --render-updates 1
+
+# 如需后续补做复验，可使用这次首次采集的实际token。
+python launch.py replay --runtime /path/to/new_runtime \
+  --first /path/to/new_trial --output /path/to/new_replay
+```
+
+`trial` 保留首次采集产物及 `lean_result.json` 的任务成功检查，**不会自动导出 LeRobot 数据集**。`collect`（单条及批量）仍默认逐条执行 replay＋导出，目前没有 `--no-replay` 参数；`--no-export` 仅关闭导出，仍会执行 replay。不要将“约3分钟首次采集”写成已经验证的“约3分钟完整采集＋LeRobot导出”。
+
+跳过 replay 不改变首次执行的物理步、控制频率、接触保护或RGB设置，但缺少“冻结实际token后在新进程独立复现成功”的证据。未运行的 replay 应记为未执行（`not_sampled`），不能标为 `replay_accepted=true`；首次抓取成功、导出可读、视觉验收仍分别记录，`training_ready` 不因跳过复验而改为true。速度数字是同机单次结果，不保证60条批次或其他机器的耗时。
+
+这里可跳过的是 SONIC 的独立物理复验。g1 的保存状态重渲染不推进物理，用于生成RGB，与该 replay 不是同一步骤。
+
 ## 参数与作用
 
 | 项目 | 当前值/设置键 | 含义与取舍 |
